@@ -1,26 +1,19 @@
 <ng-container>
-  <mat-toolbar class="example-header">Header</mat-toolbar>
-
   <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
-                 [fixedInViewport]="true" [fixedTopGap]="options.value.top"
-                 [fixedBottomGap]="options.value.bottom">
-      {{options.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav" [fixedInViewport]="true" [fixedTopGap]="0"
+      [fixedBottomGap]="0">
+      <app-sidebar></app-sidebar>
     </mat-sidenav>
 
     <mat-sidenav-content [formGroup]="options">
-      <p><mat-checkbox formControlName="fixed">Fixed</mat-checkbox></p>
-      <mat-form-field appearance="fill">
-        <mat-label>Top gap</mat-label>
-        <input matInput type="number" formControlName="top">
-      </mat-form-field>
-      <p><mat-form-field appearance="fill">
-        <mat-label>Bottom gap</mat-label>
-        <input matInput type="number" formControlName="bottom">
-      </mat-form-field></p>
-      <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+      <mat-toolbar class="example-header">
+        <button mat-button (click)="sidenav.toggle()">Toggle</button>
+        Header
+      </mat-toolbar>
+      <div class="page-content">
+        <router-outlet></router-outlet>
+      </div>
+      <mat-toolbar class="example-footer">Footer</mat-toolbar>
     </mat-sidenav-content>
   </mat-sidenav-container>
-
-  <mat-toolbar class="example-footer">Footer</mat-toolbar>
 </ng-container>

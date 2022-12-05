@@ -6,18 +6,24 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CustomersComponent } from './components/customers/customers.component';
-import { MaterialModule } from './modules/material.module';
+import { MaterialModule } from './shared/modules/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SidebarComponent } from './template/sidebar/sidebar.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    CustomersComponent
+    CustomersComponent,
+    SidebarComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
