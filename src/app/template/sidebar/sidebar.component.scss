@@ -1,0 +1,35 @@
+.mat-list-item {
+    height: auto;
+    margin: 5%;
+    width: 90% !important;
+    border-radius: 10px;
+
+    .mat-list-item-content {
+        display: block;
+        padding: 0px 15px;
+    }
+    a {
+        width: 100%;
+        padding: 0 10px;
+        margin-bottom: 10px;
+        align-items: center;
+        display: flex;
+        font-size: 15px;
+        color: white;
+        mat-icon {
+            color: white;
+            margin-right: 8px;
+        }
+        &:hover {
+            color: blue;
+        }
+    }
+}
+
+.selected {
+    background-color: blueviolet;
+}
+
+.selected:hover {
+    background-color: blueviolet;
+}

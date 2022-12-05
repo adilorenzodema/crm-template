@@ -7,6 +7,9 @@ export const MENUITEMS = [
         state: 'calendar', name: 'Calendario', type: 'link', icon: 'calendar_month'
     },
     {
-        state: 'customers', name: 'Clienti', type: 'submenu', icon: 'statistic'
+        state: 'customers', name: 'Clienti', type: 'link', icon: 'co_present'
+    },
+    {
+        state: 'help-page', name: 'Assistenza', type: 'link', icon: 'help'
     }
 ];

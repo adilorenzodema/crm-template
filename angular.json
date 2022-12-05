@@ -1,6 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "cache": {
+      "enabled": false
+    },
+    "analytics": "8b16887f-ecb6-450c-939a-da4c91a9103d"
+  },
   "newProjectRoot": "projects",
   "projects": {
     "crm-centro-estetico": {
@@ -99,8 +105,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

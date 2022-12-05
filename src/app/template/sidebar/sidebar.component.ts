@@ -5,7 +5,7 @@ import { MENUITEMS } from 'src/app/shared/costants/menu';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
   public menuItems = MENUITEMS;

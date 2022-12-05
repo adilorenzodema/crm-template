@@ -1,13 +1,13 @@
 <ng-container>
   <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" opened class="example-sidenav" [fixedInViewport]="true" [fixedTopGap]="0"
+    <mat-sidenav #snav id="snav" mode="side" opened class="example-sidenav" [fixedInViewport]="true" [fixedTopGap]="0"
       [fixedBottomGap]="0">
       <app-sidebar></app-sidebar>
     </mat-sidenav>
 
     <mat-sidenav-content [formGroup]="options">
       <mat-toolbar class="example-header">
-        <button mat-button (click)="sidenav.toggle()">Toggle</button>
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
         Header
       </mat-toolbar>
       <div class="page-content">
