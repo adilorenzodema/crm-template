@@ -32,4 +32,9 @@
 
 .selected:hover {
     background-color: blueviolet;
+    a {
+        &:hover {
+            color: white;
+        }
+    }
 }

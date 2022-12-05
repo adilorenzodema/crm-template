@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { HelpPageComponent } from './components/help-page/help-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     DashboardComponent,
     CustomersComponent,
     SidebarComponent,
-    CalendarComponent
+    CalendarComponent,
+    HelpPageComponent
   ],
   imports: [
     BrowserModule,

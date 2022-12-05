@@ -5,7 +5,7 @@
       <app-sidebar></app-sidebar>
     </mat-sidenav>
 
-    <mat-sidenav-content [formGroup]="options">
+    <mat-sidenav-content [formGroup]="options" class="page-wrapper">
       <mat-toolbar class="example-header">
         <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
         Header
@@ -13,7 +13,7 @@
       <div class="page-content">
         <router-outlet></router-outlet>
       </div>
-      <mat-toolbar class="example-footer">Footer</mat-toolbar>
+      <mat-toolbar class="example-footer" fxLayoutAlign="end">Footer</mat-toolbar>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </ng-container>
