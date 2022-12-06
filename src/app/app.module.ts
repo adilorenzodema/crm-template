@@ -12,13 +12,13 @@ import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { HelpPageComponent } from './components/help-page/help-page.component';
+import { TemplateModule } from './template/template.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     CustomersComponent,
-    SidebarComponent,
     CalendarComponent,
     HelpPageComponent
   ],
@@ -29,7 +29,8 @@ import { HelpPageComponent } from './components/help-page/help-page.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    TemplateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
