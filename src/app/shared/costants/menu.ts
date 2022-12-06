@@ -4,10 +4,10 @@ export const MENUITEMS = [
         state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'home'
     },
     {
-        state: 'calendar', name: 'Calendario', type: 'link', icon: 'calendar_month'
+        state: 'tabs', name: 'Tabs', type: 'link', icon: 'calendar_month'
     },
     {
-        state: 'customers', name: 'Clienti', type: 'link', icon: 'co_present'
+        state: 'expansion', name: 'expansion panel', type: 'link', icon: 'vertical_align_center'
     },
     {
         state: 'help-page', name: 'Assistenza', type: 'link', icon: 'help'

@@ -5,12 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { CustomersComponent } from './components/customers/customers.component';
+import { ExpansionComponent } from './components/expansion/expansion.component';
 import { MaterialModule } from './shared/modules/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CalendarComponent } from './components/calendar/calendar.component';
+import { TabsComponent } from './components/tabs/tabs.component';
 import { HelpPageComponent } from './components/help-page/help-page.component';
 import { TemplateModule } from './template/template.module';
 
@@ -18,8 +18,8 @@ import { TemplateModule } from './template/template.module';
   declarations: [
     AppComponent,
     DashboardComponent,
-    CustomersComponent,
-    CalendarComponent,
+    ExpansionComponent,
+    TabsComponent,
     HelpPageComponent
   ],
   imports: [
