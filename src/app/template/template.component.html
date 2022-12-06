@@ -1,24 +1,26 @@
 <ng-container>
     <mat-sidenav-container class="example-container">
-      <mat-sidenav #snav mode="side" opened class="example-sidenav" [fixedInViewport]="true" [fixedTopGap]="0"
-        [fixedBottomGap]="0">
-        <app-sidebar></app-sidebar>
-      </mat-sidenav>
-  
-      <mat-sidenav-content>
-        <mat-toolbar class="example-header">
-          <button mat-icon-button (click)="snav.toggle()">
-            <mat-icon>menu</mat-icon>
-          </button>
-          <span fxFlex></span>
-          <button mat-icon-button>
-            <mat-icon>person</mat-icon>
-          </button>
-        </mat-toolbar>
-        <div class="page-content">
-          <router-outlet></router-outlet>
-        </div>
-        <mat-toolbar class="example-footer" fxLayoutAlign="end">Footer</mat-toolbar>
-      </mat-sidenav-content>
+        <mat-sidenav #snav mode="side" opened class="example-sidenav" [fixedInViewport]="true" [fixedTopGap]="0"
+            [fixedBottomGap]="0">
+            <app-sidebar></app-sidebar>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <mat-toolbar class="example-header">
+                <!-- header -->
+                <button mat-icon-button (click)="snav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span fxFlex></span>
+                <button mat-icon-button>
+                    <mat-icon>person</mat-icon>
+                </button>
+            </mat-toolbar>
+            <div class="page-content">
+                <!-- contenuto interno -->
+                <router-outlet></router-outlet>
+            </div>
+            <app-footer></app-footer>
+        </mat-sidenav-content>
     </mat-sidenav-container>
-  </ng-container>
+</ng-container>
