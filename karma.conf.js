@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/crm-centro-estetico'),
+      dir: require('path').join(__dirname, './coverage/crm-template'),
       subdir: '.',
       reporters: [
         { type: 'html' },

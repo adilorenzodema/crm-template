@@ -9,7 +9,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "crm-centro-estetico": {
+    "crm-template": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -19,7 +19,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/crm-centro-estetico",
+            "outputPath": "dist/crm-template",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "crm-centro-estetico:build:production"
+              "browserTarget": "crm-template:build:production"
             },
             "development": {
-              "browserTarget": "crm-centro-estetico:build:development"
+              "browserTarget": "crm-template:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "crm-centro-estetico:build"
+            "browserTarget": "crm-template:build"
           }
         },
         "test": {
