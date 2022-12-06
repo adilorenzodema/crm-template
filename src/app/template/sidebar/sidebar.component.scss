@@ -10,31 +10,27 @@
     }
     a {
         width: 100%;
-        padding: 0 10px;
-        margin-bottom: 10px;
-        align-items: center;
         display: flex;
         font-size: 15px;
-        color: white;
+        color: #1c3775;
         mat-icon {
-            color: white;
+            color: #1c3775;
             margin-right: 8px;
         }
         &:hover {
-            color: blue;
+            color: white;
         }
     }
 }
 
 .selected {
-    background-color: #F59CB8;
+    background-color: #f59cb8;
 }
 
 .selected:hover {
-    background-color: #F59CB8;
     a {
         &:hover {
-            color: white;
+            color: #1c3775;
         }
     }
 }

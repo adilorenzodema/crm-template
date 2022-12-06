@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HelpPageComponent } from './components/help-page/help-page.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: 'dashboard', component: DashboardComponent
   },
