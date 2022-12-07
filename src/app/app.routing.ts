@@ -11,7 +11,7 @@ const routes: Routes = [
     path: 'dashboard', component: DashboardComponent
   },
   {
-    path: 'tabs', component: TabsComponent
+    path: 'tabs', loadChildren: () => import("src/app/components/tabs/tabs.module").then(m => m.TabsModule)
   },
   {
     path: 'expansion', component: ExpansionComponent

@@ -2,16 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app.routing';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ExpansionComponent } from './components/expansion/expansion.component';
-import { MaterialModule } from './shared/modules/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SidebarComponent } from './template/sidebar/sidebar.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { TabsComponent } from './components/tabs/tabs.component';
 import { HelpPageComponent } from './components/help-page/help-page.component';
+import { MaterialModule } from './shared/modules/material.module';
 import { TemplateModule } from './template/template.module';
 
 @NgModule({
@@ -19,7 +17,6 @@ import { TemplateModule } from './template/template.module';
     AppComponent,
     DashboardComponent,
     ExpansionComponent,
-    TabsComponent,
     HelpPageComponent
   ],
   imports: [
