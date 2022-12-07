@@ -9,7 +9,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "crm-template": {
+    "dema-template-gui": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -19,7 +19,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/crm-template",
+            "outputPath": "dist/dema-template-gui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "crm-template:build:production"
+              "browserTarget": "dema-template-gui:build:production"
             },
             "development": {
-              "browserTarget": "crm-template:build:development"
+              "browserTarget": "dema-template-gui:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "crm-template:build"
+            "browserTarget": "dema-template-gui:build"
           }
         },
         "test": {
