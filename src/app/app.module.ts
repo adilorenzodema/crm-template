@@ -11,13 +11,15 @@ import { ExpansionComponent } from './components/expansion/expansion.component';
 import { HelpPageComponent } from './components/help-page/help-page.component';
 import { MaterialModule } from './shared/modules/material.module';
 import { TemplateModule } from './template/template.module';
+import { LoginComponent } from './core/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     ExpansionComponent,
-    HelpPageComponent
+    HelpPageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
