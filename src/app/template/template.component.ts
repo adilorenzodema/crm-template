@@ -12,4 +12,8 @@ export class TemplateComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  logout(): void{
+    localStorage.removeItem('currentUser')
+    this.router.navigate(['/login'])
+  }
 }
