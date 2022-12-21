@@ -6,6 +6,7 @@ import { HelpPageComponent } from './components/help-page/help-page.component';
 import { LoginComponent } from './core/login/login.component';
 import { AuthGuard } from './core/guards/guards';
 import { TemplateComponent } from './template/template.component';
+import { UserManagementComponent } from './components/user-management/user-management.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,6 +24,9 @@ const routes: Routes = [
       },
       {
         path: 'help-page', component: HelpPageComponent
+      },
+      {
+        path: 'user-management', component: UserManagementComponent
       }
     ]
   }
