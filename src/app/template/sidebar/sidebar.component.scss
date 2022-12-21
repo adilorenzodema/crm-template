@@ -13,9 +13,9 @@
         height: 45px;
         display: flex;
         align-items: center;
-        color: #1c3775;
+        color: #0D2A47;
         mat-icon {
-            color: #1c3775;
+            color: #0D2A47;
             margin-right: 8px;
         }
         &:hover {
@@ -31,7 +31,7 @@
 .selected:hover {
     a {
         &:hover {
-            color: #1c3775;
+            color: #0D2A47;
         }
     }
 }
