@@ -15,15 +15,13 @@ const ELEMENT_DATA: Users[] = [
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.css']
 })
-export class UserManagementComponent implements OnInit {
+export class UserManagementComponent {
+
+  public displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'action'];
+  public dataSource = ELEMENT_DATA;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  displayedColumns: string[] = ['id', 'name', 'surname', 'email'];
-  dataSource = ELEMENT_DATA;
 
 }
 
