@@ -5,7 +5,10 @@
     "cache": {
       "enabled": false
     },
-    "analytics": "8b16887f-ecb6-450c-939a-da4c91a9103d"
+    "analytics": "8b16887f-ecb6-450c-939a-da4c91a9103d",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -101,6 +104,15 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
