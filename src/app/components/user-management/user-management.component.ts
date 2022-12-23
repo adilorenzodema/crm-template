@@ -11,7 +11,7 @@ import { Users } from '../domain/interface';
 })
 export class UserManagementComponent implements OnInit, OnDestroy {
 
-  public displayedColumns: string[] = ['id', 'name', 'surname', 'email'];
+  public displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'action'];
   public dataSource = new MatTableDataSource<Users>();
   private subscription: Subscription [] = [];
   constructor( private userManagementService : UserManagementService, ) { }
@@ -23,7 +23,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() : void{
     this.subscription.forEach(subscription => {
-      subscription.unsubscribe()
+      subscription.unsubscribe();
     });
   }
 }
