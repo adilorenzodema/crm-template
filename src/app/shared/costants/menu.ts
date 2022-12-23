@@ -10,9 +10,9 @@ export const MENUITEMS = [
     state: 'expansion', name: 'expansion panel', type: 'link', icon: 'vertical_align_center'
   },
   {
-    state: 'help-page', name: 'Assistenza', type: 'link', icon: 'help'
+    state: 'user-management', name: 'Gestione Utenti', type: 'link', icon: 'group'
   },
   {
-    state: 'user-management', name: 'Gestione Utenti', type: 'link', icon: 'help'
+    state: 'help-page', name: 'Assistenza', type: 'link', icon: 'help'
   }
 ];

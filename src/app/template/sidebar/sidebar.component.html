@@ -5,7 +5,7 @@
     </div>
     <mat-nav-list>
         <mat-list-item *ngFor="let menuitem of menuItems" routerLinkActive="selected">
-            <a [routerLink]="['/', menuitem.state]" [attr.i18nKey]="menuitem.name" *ngIf="menuitem.type === 'link'">
+            <a [routerLink]="['/', menuitem.state]">
                 <mat-icon>{{ menuitem.icon }}
                 </mat-icon>
                 <span>{{menuitem.name}}</span>
