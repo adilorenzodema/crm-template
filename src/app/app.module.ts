@@ -12,6 +12,7 @@ import { UserManagementComponent } from './components/user-management/user-manag
 import { LoginComponent } from './core/login/login.component';
 import { MaterialModule } from './shared/modules/material.module';
 import { TemplateModule } from './template/template.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TemplateModule } from './template/template.module';
     ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
-    TemplateModule
+    TemplateModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

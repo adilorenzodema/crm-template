@@ -1,30 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { Subscription } from 'rxjs';
+import { UserManagementService } from 'src/app/service/user-management.service';
 import { Users } from '../domain/interface';
-
-
-const ELEMENT_DATA: Users[] = [
-  {id: 1, name: 'Hydrogen', surname: 'Hydrogen', email: 'H'},
-  {id: 2, name: 'Helium', surname: 'Hydrogen', email: 'He'},
-  {id: 3, name: 'Lithium', surname:'Hydrogen', email: 'Li'},
-  {id: 4, name: 'Beryllium', surname: 'Hydrogen', email: 'Be'},
-  {id: 5, name: 'Boron', surname: 'Hydrogen', email: 'B'},
-];
 
 @Component({
   selector: 'app-user-management',
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.css']
 })
-export class UserManagementComponent implements OnInit {
+export class UserManagementComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  public displayedColumns: string[] = ['id', 'name', 'surname', 'email'];
+  public dataSource = new MatTableDataSource<Users>();
+  private subscription: Subscription [] = [];
+  constructor( private userManagementService : UserManagementService, ) { }
 
   ngOnInit(): void {
+    this.subscription.push(this.userManagementService.getUserList().subscribe(
+      users => this.dataSource.data = users
+    ));
   }
-
-  displayedColumns: string[] = ['id', 'name', 'surname', 'email'];
-  dataSource = ELEMENT_DATA;
-
+  ngOnDestroy() : void{
+    this.subscription.forEach(subscription => {
+      subscription.unsubscribe()
+    });
+  }
 }
+
 
 
