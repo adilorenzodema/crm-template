@@ -6,14 +6,12 @@ import { Router } from '@angular/router';
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.css']
 })
-export class TemplateComponent implements OnInit {
+export class TemplateComponent {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void { }
-
   logout(): void{
-    localStorage.removeItem('currentUser')
-    this.router.navigate(['/login'])
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/login']);
   }
 }
