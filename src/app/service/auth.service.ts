@@ -1,20 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
-import { Users } from '../components/domain/interface';
+import { LoginUser } from '../components/domain/interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserManagementService {
-
+export class AuthService {
   private apiURL = "https://users-manage.free.beeceptor.com";
-  //private Users = getUsers;
+
   constructor(private http: HttpClient) { }
 
-  getUserList(): Observable<Users[]> {
-    return this.http.get<Users[]>(this.apiURL + '/getUsers')
+  login(): Observable<LoginUser> {
+    return this.http.get<LoginUser>(this.apiURL + '/login')
       .pipe(catchError(err => { throw err; }));
   }
-
 }

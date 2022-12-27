@@ -5,3 +5,8 @@ export interface Users {
   surname: string;
   email: string;
 }
+
+export interface LoginUser {
+  utente: Users;
+  token: string;
+}
