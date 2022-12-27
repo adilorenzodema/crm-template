@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UserManagementService } from 'src/app/service/user-management.service';
 import { Users } from '../domain/interface';
@@ -29,8 +28,9 @@ export class UserManagementComponent implements OnInit, OnDestroy {
       subscription.unsubscribe();
     });
   }
-  public addUser(){
-    this.dialog.open(ModalFormUserComponent, {width: '50%', height: '50%', data: 'pippo'})
+
+  public addUser(): void{
+    this.dialog.open(ModalFormUserComponent, {width: '50%', height: '50%', data: 'pippo'});
   }
 }
 

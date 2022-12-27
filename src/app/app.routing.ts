@@ -27,7 +27,8 @@ const routes: Routes = [
         path: 'help-page', component: HelpPageComponent
       },
       {
-        path: 'user-management', component: UserManagementComponent
+        path: 'user-management',
+        loadChildren: () => import("src/app/components/user-management/user-management.module").then(m => m.UserManagementModule)
       }
     ]
   }
