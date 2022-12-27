@@ -13,6 +13,7 @@ import { LoginComponent } from './core/login/login.component';
 import { MaterialModule } from './shared/modules/material.module';
 import { TemplateModule } from './template/template.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalFormUserComponent } from './components/user-management/modal-form-user/modal-form-user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     ExpansionComponent,
     HelpPageComponent,
     LoginComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    ModalFormUserComponent
   ],
   imports: [
     BrowserModule,

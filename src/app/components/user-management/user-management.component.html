@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutGap="10px">
   <div fxLayout="row" fxLayoutAlign="end">
-    <button mat-button class="actionButton">aggiungi</button>
+    <button mat-button class="actionButton" (click)="addUser()">aggiungi</button>
   </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Property binding: e nel ts, datasource ha l'array di elementi -->
@@ -11,22 +11,22 @@
       <!--matCellDef: direttiva strutturale di Angular Material, definisce il contenuto della colonna -->
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
-  
+
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
       <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
-  
+
     <ng-container matColumnDef="surname">
       <th mat-header-cell *matHeaderCellDef> Weight </th>
       <td mat-cell *matCellDef="let element"> {{element.surname}} </td>
     </ng-container>
-  
+
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef> Symbol </th>
       <td mat-cell *matCellDef="let element"> {{element.email}} </td>
     </ng-container>
-  
+
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element" style="text-align: end;">
@@ -34,7 +34,7 @@
         <button mat-icon-button><mat-icon style="color: red">delete</mat-icon></button>
       </td>
     </ng-container>
-  
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
