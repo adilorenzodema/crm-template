@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ export class TemplateComponent {
   constructor(private router: Router) { }
 
   logout(): void{
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('User');
     this.router.navigate(['/login']);
   }
 }

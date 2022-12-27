@@ -6,7 +6,16 @@ export interface Users {
   email: string;
 }
 
+export interface Menu {
+  id: number;
+  key: string;
+  name: string;
+  route: string;
+  icon: string;
+}
+
 export interface LoginUser {
   utente: Users;
   token: string;
+  menu: Menu[];
 }
