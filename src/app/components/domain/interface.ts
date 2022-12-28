@@ -1,10 +1,5 @@
+import { Users } from "./class";
 
-export interface Users {
-  id: number;
-  name: string;
-  surname: string;
-  email: string;
-}
 
 export interface Menu {
   id: number;

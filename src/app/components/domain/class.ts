@@ -7,3 +7,16 @@ export class LoginUser {
     this.password = password;
   }
 }
+
+export class Users {
+  id: number;
+  name: string;
+  surname: string;
+  email: string;
+  constructor(id:number, name:string, surname: string,email: string ){
+    this.id = id;
+    this.name = name;
+    this.surname = surname;
+    this.email = email;
+  }
+}
