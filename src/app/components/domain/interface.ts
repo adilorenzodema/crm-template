@@ -14,7 +14,7 @@ export interface Menu {
   icon: string;
 }
 
-export interface LoginUser {
+export interface UserPermission {
   utente: Users;
   token: string;
   menu: Menu[];

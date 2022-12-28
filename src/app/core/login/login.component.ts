@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginUser } from 'src/app/components/domain/class';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -18,13 +19,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      ctrlUser: ['', Validators.required],
+      ctrlMail: ['', Validators.required],
       ctrlPasw: ['', Validators.required]
     });
   }
 
   login(): void {
-    this.autService.login().subscribe(
+    const mail = this.formGroup.get('ctrlMail')?.value;
+    const password = this.formGroup.get('ctrlPasw')?.value;
+    const formUser = new LoginUser(mail, password);
+    this.autService.login(formUser).subscribe(
       (user) => {
         localStorage.setItem('User', JSON.stringify(user));
         this.router.navigate(['/']);

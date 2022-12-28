@@ -1,6 +1,7 @@
-import { LoginUser } from "src/app/components/domain/interface";
+import { UserPermission } from "src/app/components/domain/interface";
 
-export const loginUser: LoginUser = {
+
+export const loginUser: UserPermission = {
   utente: {
     id: 4,
     name: "Niccolò",

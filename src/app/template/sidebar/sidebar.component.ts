@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginUser, Menu } from 'src/app/components/domain/interface';
+import { Menu } from 'src/app/components/domain/interface';
 import { AuthService } from 'src/app/service/auth.service';
 import { MENUITEMS } from 'src/app/shared/costants/menu';
 
