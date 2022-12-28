@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { UserManagementService } from 'src/app/service/user-management.service';
-import { Users } from '../domain/class';
+import { User } from '../domain/class';
 import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 
 @Component({
@@ -14,7 +14,7 @@ import { ModalFormUserComponent } from './modal-form-user/modal-form-user.compon
 export class UserManagementComponent implements OnInit, OnDestroy {
 
   public displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'action'];
-  public dataSource = new MatTableDataSource<Users>();
+  public dataSource = new MatTableDataSource<User>();
   private subscription: Subscription [] = [];
   constructor( private userManagementService : UserManagementService, private dialog: MatDialog) { }
 

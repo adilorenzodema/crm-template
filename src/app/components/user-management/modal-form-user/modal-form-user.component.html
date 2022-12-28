@@ -1,15 +1,15 @@
 <form [formGroup]="inputUserForm" (ngSubmit)="onSubmit()">
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
-    <input matInput type="text" name="name" required formControlName = "name" />
+    <input matInput type="text" name="name" required formControlName = "ctrlName" />
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Surname</mat-label>
-    <input matInput type="text" name="surname" required formControlName = "surname" />
+    <input matInput type="text" name="surname" required formControlName = "ctrlSurname" />
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
-    <input matInput type="email" name="email" required  formControlName = "email" />
+    <input matInput type="email" name="email" required  formControlName = "ctrlEmail" />
   </mat-form-field>
   <button mat-raised-button color="primary" type="submit">Invia</button>
 </form>

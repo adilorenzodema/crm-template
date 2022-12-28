@@ -8,13 +8,12 @@ export class LoginUser {
   }
 }
 
-export class Users {
-  id: number;
+export class User {
+  id?: number;
   name: string;
   surname: string;
   email: string;
-  constructor(id:number, name:string, surname: string,email: string ){
-    this.id = id;
+  constructor( name:string, surname: string,email: string ){
     this.name = name;
     this.surname = surname;
     this.email = email;

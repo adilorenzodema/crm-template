@@ -1,4 +1,4 @@
-import { Users } from "./class";
+import { User } from "./class";
 
 
 export interface Menu {
@@ -10,7 +10,7 @@ export interface Menu {
 }
 
 export interface UserPermission {
-  utente: Users;
+  utente: User;
   token: string;
   menu: Menu[];
 }
