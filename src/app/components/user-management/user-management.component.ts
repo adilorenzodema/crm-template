@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { UserManagementService } from 'src/app/service/user-management.service';
-import { Users } from '../domain/interface';
+import { Users } from '../domain/class';
 import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 
 @Component({
