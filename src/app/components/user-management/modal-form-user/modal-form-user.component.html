@@ -1,4 +1,4 @@
-<form [formGroup]="inputUserForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="inputUserForm" >
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
     <input matInput type="text" name="name" required formControlName = "ctrlName" />
@@ -11,5 +11,6 @@
     <mat-label>Email</mat-label>
     <input matInput type="email" name="email" required  formControlName = "ctrlEmail" />
   </mat-form-field>
-  <button mat-raised-button color="primary" type="submit">Invia</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()">Invia</button>
+  <button mat-raised-button color="primary" (click)="onCancel()">Annulla</button>
 </form>

@@ -19,9 +19,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   constructor( private userManagementService : UserManagementService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.subscription.push(this.userManagementService.getUserList().subscribe(
-      users => this.dataSource.data = users
-    ));
+    this.callGetAPI();
   }
   ngOnDestroy() : void{
     this.subscription.forEach(subscription => {
@@ -30,12 +28,26 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   }
 
   public addUser(): void{
-    this.dialog.open(ModalFormUserComponent, {width: '50%', height: '50%', data: 'pippo'});
+    let dialogRef = this.dialog.open(ModalFormUserComponent, {width: '50%', height: '20%', data: 'pippo'});
+    dialogRef.afterClosed().subscribe(
+      (result) =>{
+        if(result) {this.callGetAPI()};
+      }
+    )
   }
+  public onEdit(element: Element): void{
+    console.log(element);
+  }
+
+  private callGetAPI() : void{
+    this.subscription.push(this.userManagementService.getUserList().subscribe(
+      users => this.dataSource.data = users
+    ));
+  }
+
+
 }
 
-//Aggiungi, funzone legata al bottone (click) = "Onclick", usare https://v13.material.angular.io/components/dialog/overview
-//costruire un nuovo componente modal-form-user
 
-
+//bottone edit
 

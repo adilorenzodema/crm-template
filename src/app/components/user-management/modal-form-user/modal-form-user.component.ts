@@ -1,9 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserManagementService } from 'src/app/service/user-management.service';
 import { User } from '../../domain/class';
-
-
 
 @Component({
   selector: 'app-modal-form-user',
@@ -16,6 +16,8 @@ export class ModalFormUserComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalFormUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User,
     private formBuilder: FormBuilder,
+    private userManagementService: UserManagementService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -26,25 +28,30 @@ export class ModalFormUserComponent implements OnInit {
     });
   }
 
-
-
-  onSubmit() {
+  onSubmit(): void {
     const name = this.inputUserForm.get('ctrlName')?.value;
     const surname = this.inputUserForm.get('ctrlSurname')?.value;
     const email = this.inputUserForm.get('ctrlEmail')?.value;
     const formUser = new User(name, surname, email);
-
-    /* this.autService.login(formUser).subscribe(
-      (user) => {
-        localStorage.setItem('User', JSON.stringify(user));
-        this.router.navigate(['/']);
-      }
-    ); */
-
+    this.userManagementService.postUser(formUser).subscribe({
+      next: (data: User) => {
+        console.log(data);
+        this._snackBar.open("Utente inserito!", "X");
+      },
+      error: () => {
+        this._snackBar.open("Utente distrutto!", "X");
+      },
+      complete: () => this.dialogRef.close(true)
+    });
     console.log(formUser);
+  }
+
+  onCancel(): void {
+    this.dialogRef.close(false);
   }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+
 }
