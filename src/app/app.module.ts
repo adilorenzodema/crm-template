@@ -7,8 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ExpansionComponent } from './components/expansion/expansion.component';
-import { HelpPageComponent } from './components/help-page/help-page.component';
 import { LoginComponent } from './core/login/login.component';
 import { MaterialModule } from './shared/modules/material.module';
 import { TemplateModule } from './template/template.module';
@@ -17,8 +15,6 @@ import { TemplateModule } from './template/template.module';
   declarations: [
     AppComponent,
     DashboardComponent,
-    ExpansionComponent,
-    HelpPageComponent,
     LoginComponent
   ],
   imports: [
