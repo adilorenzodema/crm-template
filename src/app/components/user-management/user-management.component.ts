@@ -37,7 +37,6 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   }
 
   public onEdit(element: Element): void{
-    console.log(element);
     const dialogRef = this.dialog.open(ModalFormUserComponent, {width: '40%', height: '50%', data: element});
   }
 
