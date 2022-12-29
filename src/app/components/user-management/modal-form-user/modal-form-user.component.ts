@@ -17,7 +17,7 @@ export class ModalFormUserComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: User,
     private formBuilder: FormBuilder,
     private userManagementService: UserManagementService,
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -46,10 +46,10 @@ export class ModalFormUserComponent implements OnInit {
       this.userManagementService.addUser(formUser).subscribe({
         next: (data: User) => {
           console.log(data);
-          this._snackBar.open("Utente inserito!", "X");
+          this.snackBar.open("Utente inserito!", "X");
         },
         error: () => {
-          this._snackBar.open("Errore!", "X");
+          this.snackBar.open("Errore!", "X");
         },
         complete: () => this.dialogRef.close(true)
       });
@@ -57,15 +57,14 @@ export class ModalFormUserComponent implements OnInit {
       this.userManagementService.editUser(formUser).subscribe({
         next: (data: User) => {
           console.log(data);
-          this._snackBar.open("Utente modificato!", "X");
+          this.snackBar.open("Utente modificato!", "X");
         },
         error: () => {
-          this._snackBar.open("Errore!", "X");
+          this.snackBar.open("Errore!", "X");
         },
         complete: () => this.dialogRef.close(true)
       });
     }
-    console.log(formUser);
   }
 
   onCancel(): void {
