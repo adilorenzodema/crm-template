@@ -21,4 +21,9 @@ export class AuthService {
     /* return of(this.mokLoginUser); */
   }
 
+  logout(): Observable<void> {
+    return this.http.get<void>(this.apiURL + '/logout')
+      .pipe(catchError(err => { throw err; }));
+  }
+
 }
