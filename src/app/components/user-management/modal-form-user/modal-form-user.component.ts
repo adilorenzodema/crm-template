@@ -21,28 +21,50 @@ export class ModalFormUserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.inputUserForm = this.formBuilder.group({
-      ctrlName: ['', Validators.required],
-      ctrlSurname: ['', Validators.required],
-      ctrlEmail: ['', Validators.required],
-    });
+    console.log(this.data);
+    if (this.data.id) {
+      this.inputUserForm = this.formBuilder.group({
+        ctrlName: [this.data.name, [Validators.required]],
+        ctrlSurname: [this.data.surname, [Validators.required]],
+        ctrlEmail: [this.data.email, [Validators.required, Validators.email]],
+      });
+    } else {
+      this.inputUserForm = this.formBuilder.group({
+        ctrlName: ['', [Validators.required]],
+        ctrlSurname: ['', [Validators.required]],
+        ctrlEmail: ['',  [Validators.required, Validators.email]],
+      });
+    }
   }
 
-  onSubmit(): void {
+  onSubmit(isAdd: boolean): void {
     const name = this.inputUserForm.get('ctrlName')?.value;
     const surname = this.inputUserForm.get('ctrlSurname')?.value;
     const email = this.inputUserForm.get('ctrlEmail')?.value;
     const formUser = new User(name, surname, email);
-    this.userManagementService.postUser(formUser).subscribe({
-      next: (data: User) => {
-        console.log(data);
-        this._snackBar.open("Utente inserito!", "X");
-      },
-      error: () => {
-        this._snackBar.open("Utente distrutto!", "X");
-      },
-      complete: () => this.dialogRef.close(true)
-    });
+    if (isAdd) {
+      this.userManagementService.addUser(formUser).subscribe({
+        next: (data: User) => {
+          console.log(data);
+          this._snackBar.open("Utente inserito!", "X");
+        },
+        error: () => {
+          this._snackBar.open("Errore!", "X");
+        },
+        complete: () => this.dialogRef.close(true)
+      });
+    }else{
+      this.userManagementService.editUser(formUser).subscribe({
+        next: (data: User) => {
+          console.log(data);
+          this._snackBar.open("Utente modificato!", "X");
+        },
+        error: () => {
+          this._snackBar.open("Errore!", "X");
+        },
+        complete: () => this.dialogRef.close(true)
+      });
+    }
     console.log(formUser);
   }
 

@@ -28,15 +28,17 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   }
 
   public addUser(): void{
-    let dialogRef = this.dialog.open(ModalFormUserComponent, {width: '50%', height: '20%', data: 'pippo'});
+    const dialogRef = this.dialog.open(ModalFormUserComponent, {width: '50%', height: '50%', data: 'pippo'});
     dialogRef.afterClosed().subscribe(
       (result) =>{
-        if(result) {this.callGetAPI()};
+        if(result) {this.callGetAPI();};
       }
-    )
+    );
   }
+
   public onEdit(element: Element): void{
     console.log(element);
+    const dialogRef = this.dialog.open(ModalFormUserComponent, {width: '50%', height: '50%', data: element});
   }
 
   private callGetAPI() : void{

@@ -19,8 +19,13 @@ export class UserManagementService {
     return of(this.mokupUser);
   }
 
-  postUser(user:User): Observable<User> {
+  addUser(user:User): Observable<User> {
     return this.http.post<User>(this.apiURL, user)
+      .pipe(catchError(err => { throw err; }));
+  }
+
+  editUser(user:User): Observable<User> {
+    return this.http.put<User>(this.apiURL, user)
       .pipe(catchError(err => { throw err; }));
   }
 
