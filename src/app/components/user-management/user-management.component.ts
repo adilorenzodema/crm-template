@@ -28,7 +28,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   }
 
   public addUser(): void{
-    const dialogRef = this.dialog.open(ModalFormUserComponent, {width: '50%', height: '50%', data: 'pippo'});
+    const dialogRef = this.dialog.open(ModalFormUserComponent, {width: '40%', height: '50%', data: 'pippo'});
     dialogRef.afterClosed().subscribe(
       (result) =>{
         if(result) {this.callGetAPI();};
@@ -38,7 +38,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
   public onEdit(element: Element): void{
     console.log(element);
-    const dialogRef = this.dialog.open(ModalFormUserComponent, {width: '50%', height: '50%', data: element});
+    const dialogRef = this.dialog.open(ModalFormUserComponent, {width: '40%', height: '50%', data: element});
   }
 
   private callGetAPI() : void{
