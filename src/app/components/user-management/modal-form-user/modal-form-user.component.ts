@@ -24,14 +24,14 @@ export class ModalFormUserComponent implements OnInit {
     console.log(this.data);
     if (this.data.id) {
       this.inputUserForm = this.formBuilder.group({
-        ctrlName: [this.data.name, [Validators.required]],
-        ctrlSurname: [this.data.surname, [Validators.required]],
+        ctrlName: [this.data.name, [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+        ctrlSurname: [this.data.surname, [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
         ctrlEmail: [this.data.email, [Validators.required, Validators.email]],
       });
     } else {
       this.inputUserForm = this.formBuilder.group({
-        ctrlName: ['', [Validators.required]],
-        ctrlSurname: ['', [Validators.required]],
+        ctrlName: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+        ctrlSurname: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
         ctrlEmail: ['',  [Validators.required, Validators.email]],
       });
     }
