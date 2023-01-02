@@ -14,14 +14,14 @@ export const loginUser: UserPermission = {
   menu: [
     {
       "id": 1,
-      "key": "dashboard",
+      "code": "dashboard",
       "name": "Dashboard",
       "route": "dashboard",
       "icon": "home"
     },
     {
       "id": 3,
-      "key": "userManagement",
+      "code": "userManagement",
       "name": "Gestione Utenti",
       "route": "user-management",
       "icon": "manage_accounts"

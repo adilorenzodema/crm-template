@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/service/auth.service';
 import { UserManagementService } from 'src/app/service/user-management.service';
 import { User } from '../domain/class';
 import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
@@ -15,37 +16,50 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
   public displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'action'];
   public dataSource = new MatTableDataSource<User>();
-  private subscription: Subscription [] = [];
-  constructor( private userManagementService : UserManagementService, private dialog: MatDialog) { }
+  private subscription: Subscription[] = [];
+
+  constructor(
+    private userManagementService: UserManagementService,
+    private authService: AuthService,
+    private dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     this.callGetAPI();
+    this.getPermissionAPI();
   }
-  ngOnDestroy() : void{
+
+  ngOnDestroy(): void {
     this.subscription.forEach(subscription => {
       subscription.unsubscribe();
     });
   }
 
-  public addUser(): void{
-    const dialogRef = this.dialog.open(ModalFormUserComponent, {width: '40%', height: '50%', data: 'pippo'});
+  public addUser(): void {
+    const dialogRef = this.dialog.open(ModalFormUserComponent, { width: '40%', height: '50%', data: 'pippo' });
     dialogRef.afterClosed().subscribe(
-      (result) =>{
-        if(result) {this.callGetAPI();};
+      (result) => {
+        if (result) { this.callGetAPI(); };
       }
     );
   }
 
-  public onEdit(element: Element): void{
-    const dialogRef = this.dialog.open(ModalFormUserComponent, {width: '40%', height: '50%', data: element});
+  public onEdit(element: Element): void {
+    const dialogRef = this.dialog.open(ModalFormUserComponent, { width: '40%', height: '50%', data: element });
   }
 
-  private callGetAPI() : void{
+  private callGetAPI(): void {
     this.subscription.push(this.userManagementService.getUserList().subscribe(
       users => this.dataSource.data = users
     ));
   }
 
+  private getPermissionAPI(): void {
+    const currentUrl = (window.location.pathname).replace('/', '');
+    this.subscription.push(this.authService.getPermissionPage(currentUrl).subscribe(
+      resp => console.log(resp)
+    ));
+  }
 
 }
 

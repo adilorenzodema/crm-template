@@ -7,15 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LoginComponent } from './core/login/login.component';
+import { LoginComponent } from './components/autentication/login/login.component';
 import { MaterialModule } from './shared/modules/material.module';
 import { TemplateModule } from './template/template.module';
+import { ChangePasswordComponent } from './components/autentication/change-password/change-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

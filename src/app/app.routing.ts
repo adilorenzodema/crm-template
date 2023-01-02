@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './core/guards/guards';
-import { LoginComponent } from './core/login/login.component';
+import { LoginComponent } from './components/autentication/login/login.component';
 import { TemplateComponent } from './template/template.component';
+import { ChangePasswordComponent } from './components/autentication/change-password/change-password.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'change-password', component: ChangePasswordComponent },
   {
     path: '', component: TemplateComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

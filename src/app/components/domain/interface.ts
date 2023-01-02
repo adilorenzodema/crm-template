@@ -3,7 +3,7 @@ import { User } from "./class";
 
 export interface Menu {
   id: number;
-  key: string;
+  code: string;
   name: string;
   route: string;
   icon: string;
