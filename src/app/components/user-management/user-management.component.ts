@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
@@ -16,15 +17,21 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
   public displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'action'];
   public dataSource = new MatTableDataSource<User>();
+  public search!: FormGroup;
   private subscription: Subscription[] = [];
 
   constructor(
     private userManagementService: UserManagementService,
     private authService: AuthService,
+    private formBuilder: FormBuilder,
     private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+    this.search = this.formBuilder.group({
+      ctrlSearch: [''],
+      ctrlActive: [true]
+    });
     this.callGetAPI();
     this.getPermissionAPI();
   }

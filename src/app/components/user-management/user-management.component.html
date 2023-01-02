@@ -1,7 +1,17 @@
 <div fxLayout="column" fxLayoutGap="10px">
-  <div fxLayout="row" fxLayoutAlign="end">
-    <button mat-button class="actionButton" (click)="addUser()">aggiungi</button>
-  </div>
+  <form [formGroup]="search" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <mat-form-field appearance="outline" fxFlex="100">
+      <mat-label>cerca</mat-label>
+      <input matInput type="search" formControlName="ctrlSearch" autocomplete="off">
+      <button matPrefix mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-slide-toggle formControlName="ctrlActive" color="primary">
+      {{search.controls['ctrlActive'].value ? 'attivi' : 'non attivi'}}
+    </mat-slide-toggle>
+    <span><button mat-button class="actionButton" (click)="addUser()">aggiungi</button></span>
+  </form>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Property binding: e nel ts, datasource ha l'array di elementi -->
     <!-- Position Column -->
