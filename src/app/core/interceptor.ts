@@ -15,9 +15,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 500) { // not autorized
-          console.log("Entra!")
-          console.log(error);
+        if (error.status === 500) { // not autorizeds
           this.snackBar.open(this.translateService.instant(error.error.errorCode),
             '✖',
             {

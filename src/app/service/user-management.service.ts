@@ -13,12 +13,12 @@ export class UserManagementService {
   private apiURL = 'http://localhost:8080/api/manageUsers';
   constructor(private http: HttpClient) { }
 
-  getUserList(): Observable<User[]> {
+  getUserList(): Observable<{userList: User[]}> {
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
       params: HttpUtils.createHttpParams({ token: this.getToken()})
     };
-    return this.http.get<User[]>(this.apiURL + '/getUsers', options)
+    return this.http.get<{userList: User[]}>(this.apiURL + '/getUsers', options)
       .pipe(catchError(err => { throw err; }));
   }
 

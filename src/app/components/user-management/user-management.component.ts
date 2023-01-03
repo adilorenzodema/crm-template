@@ -15,7 +15,7 @@ import { ModalFormUserComponent } from './modal-form-user/modal-form-user.compon
 })
 export class UserManagementComponent implements OnInit, OnDestroy {
 
-  public displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'action'];
+  public displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'action'];
   public dataSource = new MatTableDataSource<User>();
   public search!: FormGroup;
   private subscription: Subscription[] = [];
@@ -57,7 +57,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
   private callGetAPI(): void {
     this.subscription.push(this.userManagementService.getUserList().subscribe(
-      users => (this.dataSource.data = users ,console.log(users))
+      users => (this.dataSource.data = users.userList ,console.log(users))
     ));
   }
 
