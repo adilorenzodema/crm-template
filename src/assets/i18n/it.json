@@ -1,0 +1,6 @@
+{
+  "error": {
+    "login": "Username o password sbagliate.",
+    "unknown": "Errore sconosciuto."
+  }
+}

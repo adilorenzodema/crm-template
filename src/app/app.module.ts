@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +13,12 @@ import { TemplateModule } from './template/template.module';
 import { ChangePasswordComponent } from './components/autentication/change-password/change-password.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpConfigInterceptor } from './core/interceptor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -30,13 +36,20 @@ import { HttpConfigInterceptor } from './core/interceptor';
     AppRoutingModule,
     MaterialModule,
     TemplateModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
-  /* providers: [{
+  providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: HttpConfigInterceptor,
     multi: true,
-  }], */
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
