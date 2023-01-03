@@ -29,7 +29,9 @@ export class UserManagementService {
       .pipe(catchError(err => { throw err; }));
   }
 
+ /*  deleteUser(id :number): Observable<unknown>{
+    return this.http.delete(this.apiURL, id)
+      .pipe(catchError(err => { throw err; }));
+  }
+ */
 }
-
-//funzione adduser, post in ingresso lo USer e lo mette nel body
-//edit dentro modal user
