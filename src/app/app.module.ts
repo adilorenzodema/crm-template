@@ -11,6 +11,8 @@ import { LoginComponent } from './components/autentication/login/login.component
 import { MaterialModule } from './shared/modules/material.module';
 import { TemplateModule } from './template/template.module';
 import { ChangePasswordComponent } from './components/autentication/change-password/change-password.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpConfigInterceptor } from './core/interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,11 @@ import { ChangePasswordComponent } from './components/autentication/change-passw
     TemplateModule,
     HttpClientModule
   ],
-  providers: [],
+  /* providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpConfigInterceptor,
+    multi: true,
+  }], */
   bootstrap: [AppComponent]
 })
 export class AppModule { }

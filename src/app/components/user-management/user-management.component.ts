@@ -57,7 +57,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
   private callGetAPI(): void {
     this.subscription.push(this.userManagementService.getUserList().subscribe(
-      users => this.dataSource.data = users
+      users => (this.dataSource.data = users ,console.log(users))
     ));
   }
 

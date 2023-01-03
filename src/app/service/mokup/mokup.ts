@@ -28,7 +28,7 @@ export const loginUser: UserPermission = {
     }
   ]
 };
-
+/*
 export const  userMokup: User[] = [
   {
     id: 1,
@@ -56,3 +56,4 @@ export const  userMokup: User[] = [
   }
 ];
 
+ */
