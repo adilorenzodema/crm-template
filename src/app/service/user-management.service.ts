@@ -37,7 +37,7 @@ export class UserManagementService {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
       params: HttpUtils.createHttpParams({ token: this.getToken()})
     };
-    return this.http.put<User>(this.apiURL + '/editUser', user, options)
+    return this.http.post<User>(this.apiURL + '/editUser', user, options)
       .pipe(catchError(err => { throw err; }));
   }
 

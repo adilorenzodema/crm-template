@@ -1,7 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
 import { UserManagementService } from 'src/app/service/user-management.service';
 import { User } from '../../domain/class';
 import { UserProfile } from '../../domain/interface';
@@ -11,9 +12,10 @@ import { UserProfile } from '../../domain/interface';
   templateUrl: './modal-form-user.component.html',
   styleUrls: ['./modal-form-user.component.css']
 })
-export class ModalFormUserComponent implements OnInit {
+export class ModalFormUserComponent implements OnInit, OnDestroy {
   inputUserForm!: FormGroup;
   dropdownData!: UserProfile[];
+  subscription: Subscription[] = [];
   constructor(
     public dialogRef: MatDialogRef<ModalFormUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User,
@@ -24,13 +26,15 @@ export class ModalFormUserComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.data);
+    this.getProfiles();
     if (this.data.id) {
       this.inputUserForm = this.formBuilder.group({
-        ctrlName: [this.data.name, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-        ctrlSurname: [this.data.surname, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+        ctrlName: [this.data.firstName, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+        ctrlSurname: [this.data.lastName, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
         ctrlEmail: [this.data.email, [Validators.required, Validators.email]],
-        ctrlProfileCode: [null ,[Validators.required]],
+        ctrlProfileCode: [null, [Validators.required]],
       });
+
     } else {
       this.inputUserForm = this.formBuilder.group({
         ctrlName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
@@ -38,15 +42,16 @@ export class ModalFormUserComponent implements OnInit {
         ctrlEmail: ['', [Validators.required, Validators.email]],
         ctrlProfileCode: [null, [Validators.required]],
       });
-      this.getProfiles()
     }
   }
 
-  getProfiles(): void {
-    this.userManagementService.getProfileList().subscribe((res) => this.dropdownData = res.profileList);
+  ngOnDestroy(): void {
+    this.subscription.forEach(element => {
+      element.unsubscribe();
+    });
   }
 
-  onSubmit(isAdd: boolean): void {
+  public onSubmit(isAdd: boolean): void {
     const name = this.inputUserForm.get('ctrlName')?.value;
     const surname = this.inputUserForm.get('ctrlSurname')?.value;
     const email = this.inputUserForm.get('ctrlEmail')?.value;
@@ -77,12 +82,16 @@ export class ModalFormUserComponent implements OnInit {
     }
   }
 
-  onCancel(): void {
+
+  public onCancel(): void {
     this.dialogRef.close(false);
   }
 
-  onNoClick(): void {
+  public onNoClick(): void {
     this.dialogRef.close();
   }
-  //getprofile, menu tendina, aggiungere profile su interface
+
+  private getProfiles(): void {
+    this.subscription.push(this.userManagementService.getProfileList().subscribe((res) => this.dropdownData = res.profileList));
+  }
 }

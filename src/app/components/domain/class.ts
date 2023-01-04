@@ -10,13 +10,13 @@ export class LoginUser {
 
 export class User {
   id?: number;
-  name: string;
-  surname: string;
+  firstName: string;
+  lastName: string;
   email: string;
   profile: string;
-  constructor( name:string, surname: string,email: string, profile: string){
-    this.name = name;
-    this.surname = surname;
+  constructor( firstName:string, lastName: string,email: string, profile: string){
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.email = email;
     this.profile = profile;
   }

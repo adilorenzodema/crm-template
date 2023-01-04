@@ -5,8 +5,8 @@ import { UserPermission } from "src/app/components/domain/interface";
 export const loginUser: UserPermission = {
   utente: {
     id: 4,
-    name: "Niccolò",
-    surname: "Arnetoli",
+    firstName: "Niccolò",
+    lastName: "Arnetoli",
     email: "n.arnetoli@dema-engineering.it",
     profile: ""
   },
