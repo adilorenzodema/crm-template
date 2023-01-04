@@ -11,13 +11,14 @@ import { loginUser } from './mokup/mokup';
 })
 export class AuthService {
   public loginUser!: UserPermission;
+  private noAuthURL = "http://localhost:8080/noAuth";
   private apiURL = "http://localhost:8080/auth";
   private mokLoginUser = loginUser;
 
   constructor(private http: HttpClient) { }
 
   login(loginUser: LoginUser): Observable<UserPermission> {
-    return this.http.post<UserPermission>(this.apiURL + '/login', loginUser)
+    return this.http.post<UserPermission>(this.noAuthURL + '/login', loginUser)
       .pipe(catchError(err => { throw err; }));
     /* return of(this.mokLoginUser); */
   }
