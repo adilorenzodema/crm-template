@@ -27,7 +27,7 @@ export class UserManagementService {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
       params: HttpUtils.createHttpParams({ token: this.getToken()})
     };
-    return this.http.post<User>(this.apiURL + '/saveUsers', user, options)
+    return this.http.post<User>(this.apiURL + '/addUser', user, options)
       .pipe(catchError(err => { throw err; }));
   }
 
@@ -36,9 +36,19 @@ export class UserManagementService {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
       params: HttpUtils.createHttpParams({ token: this.getToken()})
     };
-    return this.http.put<User>(this.apiURL + '/updateUsers', user, options)
+    return this.http.put<User>(this.apiURL + '/editUser', user, options)
       .pipe(catchError(err => { throw err; }));
   }
+
+  getprofileList(): Observable<{userList: User[]}> {
+    const options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      params: HttpUtils.createHttpParams({ token: this.getToken()})
+    };
+    return this.http.get<{userList: User[]}>(this.apiURL + '/getAllProfiles', options)
+      .pipe(catchError(err => { throw err; }));
+  }
+
 
   /*  deleteUser(id :number): Observable<unknown>{
      return this.http.delete(this.apiURL, id)

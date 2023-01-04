@@ -15,7 +15,7 @@ import { ModalFormUserComponent } from './modal-form-user/modal-form-user.compon
 })
 export class UserManagementComponent implements OnInit, OnDestroy {
 
-  public displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'action'];
+  public displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'profile','action'];
   public dataSource = new MatTableDataSource<User>();
   public search!: FormGroup;
   private subscription: Subscription[] = [];

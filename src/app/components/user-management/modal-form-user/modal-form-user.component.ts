@@ -27,12 +27,14 @@ export class ModalFormUserComponent implements OnInit {
         ctrlName: [this.data.name, [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
         ctrlSurname: [this.data.surname, [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
         ctrlEmail: [this.data.email, [Validators.required, Validators.email]],
+        ctrlProfileName: [this.data.profileName, [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
       });
     } else {
       this.inputUserForm = this.formBuilder.group({
         ctrlName: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
         ctrlSurname: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
         ctrlEmail: ['',  [Validators.required, Validators.email]],
+        ctrlProfileName: [this.data.profileName, [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
       });
     }
   }
@@ -41,7 +43,8 @@ export class ModalFormUserComponent implements OnInit {
     const name = this.inputUserForm.get('ctrlName')?.value;
     const surname = this.inputUserForm.get('ctrlSurname')?.value;
     const email = this.inputUserForm.get('ctrlEmail')?.value;
-    const formUser = new User(name, surname, email);
+    const profileName = this.inputUserForm.get('ctrlProfileName')?.value;
+    const formUser = new User(name, surname, email, profileName);
     if (isAdd) {
       this.userManagementService.addUser(formUser).subscribe({
         next: (data: User) => {
@@ -74,5 +77,5 @@ export class ModalFormUserComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
+//getprofile, menu tendina, aggiungere profile su interface
 }

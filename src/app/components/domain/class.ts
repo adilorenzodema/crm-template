@@ -13,10 +13,13 @@ export class User {
   name: string;
   surname: string;
   email: string;
-  constructor( name:string, surname: string,email: string ){
+  profileName: string;
+  profileCode?: string;
+  constructor( name:string, surname: string,email: string, profileName: string){
     this.name = name;
     this.surname = surname;
     this.email = email;
+    this.profileName = profileName;
   }
 }
 
