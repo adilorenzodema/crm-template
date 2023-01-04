@@ -15,19 +15,14 @@
     <mat-error>Inserire un email valida</mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill" fxFlex="100" fxFlex.gt-xs="100" fxFlex.gt-lg="30">
-    <mat-label>Profilo</mat-label>
-    <input matInput type="text" required formControlName="ctrlProfile" />
-    <mat-error>Inserire un profilo valido</mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Favorite animal</mat-label>
-    <mat-select formControlName="ctrlProfile" required>
+    <mat-label>Profilo </mat-label>
+    <mat-select formControlName="ctrlProfileCode" required>
       <mat-option>--</mat-option>
-      <!-- <mat-option *ngFor="let profile of profiles" [value]="profile"> -->
-        {{user.profile}
-     <!--  </mat-option> -->
+      <mat-option *ngFor="let profile of dropdownData" [value]="profile.profileCode">
+        {{ profile.profileCode }}
+      </mat-option>
     </mat-select>
-   <!--  <mat-error *ngIf="animalControl.hasError('required')">Perfavore scegliere un profilo</mat-error> -->
+    <!--  <mat-error *ngIf="animalControl.hasError('required')">Perfavore scegliere un profilo</mat-error> -->
   </mat-form-field>
 </form>
 <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">

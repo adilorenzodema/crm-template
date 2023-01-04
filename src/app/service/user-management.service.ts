@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { User } from '../components/domain/class';
+import { UserProfile } from '../components/domain/interface';
 import { HttpUtils } from '../shared/utils/httpUtils';
 //import { userMokup } from './mokup/mokup';
 
@@ -40,14 +41,15 @@ export class UserManagementService {
       .pipe(catchError(err => { throw err; }));
   }
 
-  getprofileList(): Observable<{userList: User[]}> {
+  getProfileList(): Observable<{profileList: UserProfile[]}> {
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
       params: HttpUtils.createHttpParams({ token: this.getToken()})
     };
-    return this.http.get<{userList: User[]}>(this.apiURL + '/getAllProfiles', options)
+    return this.http.get<{profileList: UserProfile[]}>(this.apiURL + '/getAllProfiles', options)
       .pipe(catchError(err => { throw err; }));
   }
+
 
 
   /*  deleteUser(id :number): Observable<unknown>{
@@ -60,3 +62,5 @@ export class UserManagementService {
     return JSON.parse(String(localStorage.getItem('User'))).token;
   }
 }
+
+//

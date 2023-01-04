@@ -14,3 +14,8 @@ export interface UserPermission {
   token: string;
   menu: Menu[];
 }
+
+export interface UserProfile{
+  profileCode: string ;
+  profileDescription: string;
+}

@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserManagementService } from 'src/app/service/user-management.service';
 import { User } from '../../domain/class';
+import { UserProfile } from '../../domain/interface';
 
 @Component({
   selector: 'app-modal-form-user',
@@ -12,39 +13,45 @@ import { User } from '../../domain/class';
 })
 export class ModalFormUserComponent implements OnInit {
   inputUserForm!: FormGroup;
+  dropdownData!: UserProfile[];
   constructor(
     public dialogRef: MatDialogRef<ModalFormUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User,
     private formBuilder: FormBuilder,
     private userManagementService: UserManagementService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
     console.log(this.data);
     if (this.data.id) {
       this.inputUserForm = this.formBuilder.group({
-        ctrlName: [this.data.name, [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
-        ctrlSurname: [this.data.surname, [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+        ctrlName: [this.data.name, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+        ctrlSurname: [this.data.surname, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
         ctrlEmail: [this.data.email, [Validators.required, Validators.email]],
-        ctrlProfileName: [this.data.profileName, [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+        ctrlProfileCode: [null ,[Validators.required]],
       });
     } else {
       this.inputUserForm = this.formBuilder.group({
-        ctrlName: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
-        ctrlSurname: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
-        ctrlEmail: ['',  [Validators.required, Validators.email]],
-        ctrlProfileName: [this.data.profileName, [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+        ctrlName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+        ctrlSurname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+        ctrlEmail: ['', [Validators.required, Validators.email]],
+        ctrlProfileCode: [null, [Validators.required]],
       });
+      this.getProfiles()
     }
+  }
+
+  getProfiles(): void {
+    this.userManagementService.getProfileList().subscribe((res) => this.dropdownData = res.profileList);
   }
 
   onSubmit(isAdd: boolean): void {
     const name = this.inputUserForm.get('ctrlName')?.value;
     const surname = this.inputUserForm.get('ctrlSurname')?.value;
     const email = this.inputUserForm.get('ctrlEmail')?.value;
-    const profileName = this.inputUserForm.get('ctrlProfileName')?.value;
-    const formUser = new User(name, surname, email, profileName);
+    const profileCode = this.inputUserForm.get('ctrlProfileCode')?.value;
+    const formUser = new User(name, surname, email, profileCode);
     if (isAdd) {
       this.userManagementService.addUser(formUser).subscribe({
         next: (data: User) => {
@@ -56,7 +63,7 @@ export class ModalFormUserComponent implements OnInit {
         },
         complete: () => this.dialogRef.close(true)
       });
-    }else{
+    } else {
       this.userManagementService.editUser(formUser).subscribe({
         next: (data: User) => {
           console.log(data);
@@ -77,5 +84,5 @@ export class ModalFormUserComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-//getprofile, menu tendina, aggiungere profile su interface
+  //getprofile, menu tendina, aggiungere profile su interface
 }
