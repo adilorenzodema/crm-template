@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserManagementService } from 'src/app/service/user-management.service';
 import { User } from '../domain/class';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 
 @Component({
@@ -15,7 +16,7 @@ import { ModalFormUserComponent } from './modal-form-user/modal-form-user.compon
 })
 export class UserManagementComponent implements OnInit, OnDestroy {
 
-  public displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'profile','action'];
+  public displayedColumns: string[] = ['userId', 'firstName', 'lastName', 'email', 'profile','action'];
   public dataSource = new MatTableDataSource<User>();
   public search!: FormGroup;
   private subscription: Subscription[] = [];
@@ -53,6 +54,15 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
   public onEdit(element: Element): void {
     const dialogRef = this.dialog.open(ModalFormUserComponent, { width: '40%', height: '50%', data: element });
+    dialogRef.afterClosed().subscribe(
+      (result) =>{
+        if (result) { this.callGetAPI(); };
+      }
+    )
+  }
+
+  public onDelete(element: Element): void{
+    const dialogRef = this.dialog.open(DeleteUserComponent, { width: '40%', height: '50%', data: element });
   }
 
   private callGetAPI(): void {

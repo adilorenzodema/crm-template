@@ -9,16 +9,17 @@ export class LoginUser {
 }
 
 export class User {
-  id?: number;
+  userId?: number;
   firstName: string;
   lastName: string;
   email: string;
   profile: string;
-  constructor( firstName:string, lastName: string,email: string, profile: string){
+  constructor( firstName:string, lastName: string,email: string, profile: string, userId?: number){
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.profile = profile;
+    if (userId) this.userId = userId;
   }
 }
 

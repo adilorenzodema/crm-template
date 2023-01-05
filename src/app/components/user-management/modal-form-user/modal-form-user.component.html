@@ -28,5 +28,5 @@
 <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
   <button mat-raised-button color="primary" (click)="onCancel()">Annulla</button>
   <button mat-raised-button color="primary" [disabled]="inputUserForm.invalid"
-    (click)="onSubmit(data.id ? false : true)">{{data.id ? 'Modifica': 'Invia'}}</button>
+    (click)="onSubmit(data.userId ? false : true)">{{data.userId ? 'Modifica': 'Invia'}}</button>
 </div>

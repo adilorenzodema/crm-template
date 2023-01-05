@@ -25,9 +25,9 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.data);
+    console.log("sono il data" + this.data);
     this.getProfiles();
-    if (this.data.id) {
+    if (this.data.userId) {
       this.inputUserForm = this.formBuilder.group({
         ctrlName: [this.data.firstName, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
         ctrlSurname: [this.data.lastName, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
@@ -36,6 +36,8 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
       });
 
     } else {
+      console.log("Entrato nella add!")
+      console.log(this.data.userId)
       this.inputUserForm = this.formBuilder.group({
         ctrlName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
         ctrlSurname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
@@ -56,9 +58,9 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
     const surname = this.inputUserForm.get('ctrlSurname')?.value;
     const email = this.inputUserForm.get('ctrlEmail')?.value;
     const profileCode = this.inputUserForm.get('ctrlProfileCode')?.value;
-    const formUser = new User(name, surname, email, profileCode);
+    const formUserAdd = new User(name, surname, email, profileCode);
     if (isAdd) {
-      this.userManagementService.addUser(formUser).subscribe({
+      this.userManagementService.addUser(formUserAdd).subscribe({
         next: (data: User) => {
           console.log(data);
           this.snackBar.open("Utente inserito!", "X");
@@ -69,10 +71,17 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
         complete: () => this.dialogRef.close(true)
       });
     } else {
-      this.userManagementService.editUser(formUser).subscribe({
+      const userId = this.data.userId;
+      const formUserEdit = new User(name, surname, email, profileCode, userId);
+      this.userManagementService.editUser(formUserEdit).subscribe({
         next: (data: User) => {
           console.log(data);
-          this.snackBar.open("Utente modificato!", "X");
+          this.snackBar.open("Utente modificato!", "X",{
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: 'INFO'
+          });
         },
         error: () => {
           this.snackBar.open("Errore!", "X");
@@ -81,7 +90,6 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
       });
     }
   }
-
 
   public onCancel(): void {
     this.dialogRef.close(false);

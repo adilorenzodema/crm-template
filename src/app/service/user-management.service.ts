@@ -14,19 +14,19 @@ export class UserManagementService {
   private apiURL = 'http://localhost:8080/api/manageUsers';
   constructor(private http: HttpClient) { }
 
-  getUserList(): Observable<{userList: User[]}> {
+  getUserList(): Observable<{ userList: User[] }> {
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
-      params: HttpUtils.createHttpParams({ token: this.getToken()})
+      params: HttpUtils.createHttpParams({ token: this.getToken() })
     };
-    return this.http.get<{userList: User[]}>(this.apiURL + '/getUsers', options)
+    return this.http.get<{ userList: User[] }>(this.apiURL + '/getUsers', options)
       .pipe(catchError(err => { throw err; }));
   }
 
   addUser(user: User): Observable<User> {
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
-      params: HttpUtils.createHttpParams({ token: this.getToken()})
+      params: HttpUtils.createHttpParams({ token: this.getToken() })
     };
     return this.http.post<User>(this.apiURL + '/addUser', user, options)
       .pipe(catchError(err => { throw err; }));
@@ -35,28 +35,30 @@ export class UserManagementService {
   editUser(user: User): Observable<User> {
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
-      params: HttpUtils.createHttpParams({ token: this.getToken()})
+      params: HttpUtils.createHttpParams({ token: this.getToken() })
     };
     return this.http.post<User>(this.apiURL + '/editUser', user, options)
       .pipe(catchError(err => { throw err; }));
   }
 
-  getProfileList(): Observable<{profileList: UserProfile[]}> {
+  getProfileList(): Observable<{ profileList: UserProfile[] }> {
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
-      params: HttpUtils.createHttpParams({ token: this.getToken()})
+      params: HttpUtils.createHttpParams({ token: this.getToken() })
     };
-    return this.http.get<{profileList: UserProfile[]}>(this.apiURL + '/getAllProfiles', options)
+    return this.http.get<{ profileList: UserProfile[] }>(this.apiURL + '/getAllProfiles', options)
       .pipe(catchError(err => { throw err; }));
   }
 
+  deleteUser(user: User): Observable<unknown> {
+    const options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      params: HttpUtils.createHttpParams({ token: this.getToken() })
+    };
+    return this.http.post(this.apiURL + '/deleteUser', user.userId)
+      .pipe(catchError(err => { throw err; }));
+  }
 
-
-  /*  deleteUser(id :number): Observable<unknown>{
-     return this.http.delete(this.apiURL, id)
-       .pipe(catchError(err => { throw err; }));
-   }
-  */
 
   private getToken(): string {
     return JSON.parse(String(localStorage.getItem('User'))).token;
