@@ -77,7 +77,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
     const keyword = this.search.get('ctrlSearch')?.value;
     const isActive = this.search.get('ctrlActive')?.value;
     this.subscription.push(this.userManagementService.getUserList(keyword, isActive).subscribe(
-      users => this.dataSource.data = users.userList
+      users => this.dataSource.data = users
     ));
   }
 
