@@ -50,12 +50,12 @@ export class UserManagementService {
       .pipe(catchError(err => { throw err; }));
   }
 
-  deleteUser(user: User): Observable<unknown> {
+  deleteUser(userId: number): Observable<unknown> {
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
       params: HttpUtils.createHttpParams({ token: this.getToken() })
     };
-    return this.http.post(this.apiURL + '/deleteUser', user.userId)
+    return this.http.post(this.apiURL + '/deleteUser', userId)
       .pipe(catchError(err => { throw err; }));
   }
 

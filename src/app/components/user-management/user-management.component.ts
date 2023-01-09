@@ -16,7 +16,7 @@ import { ModalFormUserComponent } from './modal-form-user/modal-form-user.compon
 })
 export class UserManagementComponent implements OnInit, OnDestroy {
 
-  public displayedColumns: string[] = ['userId', 'firstName', 'lastName', 'email', 'profile','action'];
+  public displayedColumns: string[] = ['userId', 'firstName', 'lastName', 'email', 'profile', 'action'];
   public dataSource = new MatTableDataSource<User>();
   public search!: FormGroup;
   private subscription: Subscription[] = [];
@@ -55,19 +55,29 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   public onEdit(element: Element): void {
     const dialogRef = this.dialog.open(ModalFormUserComponent, { width: '40%', height: '50%', data: element });
     dialogRef.afterClosed().subscribe(
-      (result) =>{
+      (result) => {
         if (result) { this.callGetAPI(); };
       }
     )
   }
 
-  public onDelete(element: Element): void{
-    const dialogRef = this.dialog.open(DeleteUserComponent, { width: '40%', height: '50%', data: element });
+  public onDelete(userId: number): void {
+    const dialogRef = this.dialog.open(DeleteUserComponent, { width: '40%', height: '50%' });
+    dialogRef.afterClosed().subscribe(
+      (result) => {
+        console.log(userId);
+        if (result) {
+          this.subscription.push(this.userManagementService.deleteUser(userId).subscribe());
+        }
+        else {
+          console.log("false");
+        }
+      });
   }
 
   private callGetAPI(): void {
     this.subscription.push(this.userManagementService.getUserList().subscribe(
-      users => (this.dataSource.data = users.userList ,console.log(users))
+      users => (this.dataSource.data = users.userList, console.log(users))
     ));
   }
 
@@ -80,6 +90,4 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
 }
 
-
-//bottone edit
 
