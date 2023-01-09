@@ -3,6 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -14,6 +15,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
   constructor(
     private snackBar: MatSnackBar,
     private translateService: TranslateService,
+    private cookieService: CookieService,
     private router: Router) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -30,7 +32,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
             });
           return throwError(() => error);
         } else if (error.status === 401) { // non valido
-          localStorage.removeItem('User');
+          this.cookieService.delete('User');
           this.router.navigate(['/login']);
           return throwError(() => error);
         } else { // altri errori non mappati

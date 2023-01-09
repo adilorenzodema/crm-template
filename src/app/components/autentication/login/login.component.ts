@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { LoginUser } from 'src/app/components/domain/class';
 import { AuthService } from 'src/app/service/auth.service';
 
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private autService: AuthService) { }
+    private autService: AuthService,
+    private cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
@@ -30,7 +32,7 @@ export class LoginComponent implements OnInit {
     const formUser = new LoginUser(mail, password);
     this.autService.login(formUser).subscribe(
       (user) => {
-        localStorage.setItem('User', JSON.stringify(user));
+        this.cookieService.set('User', JSON.stringify(user));
         this.router.navigate(['/']);
       }
     );

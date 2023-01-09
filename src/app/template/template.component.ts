@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -11,13 +12,14 @@ export class TemplateComponent {
 
   constructor(
     private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private cookiService: CookieService) { }
 
   logout(): void {
     this.authService.logout().subscribe({
       next: (resp) => console.log(resp),
       complete: () => {
-        localStorage.removeItem('User');
+        this.cookiService.delete('User');
         this.router.navigate(['/login']);
       }
     });

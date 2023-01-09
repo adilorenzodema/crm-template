@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Menu } from 'src/app/components/domain/interface';
 import { AuthService } from 'src/app/service/auth.service';
 import { MENUITEMS } from 'src/app/shared/costants/menu';
@@ -11,10 +12,10 @@ import { MENUITEMS } from 'src/app/shared/costants/menu';
 })
 export class SidebarComponent implements OnInit {
   public menuItems: Menu[] = [];
-  constructor(private authService: AuthService) { }
+  constructor(private cookieService: CookieService) { }
 
   ngOnInit(): void {
-    this.menuItems = (JSON.parse(String(localStorage.getItem('User'))).menu as Menu[]);
+    this.menuItems = (JSON.parse(this.cookieService.get('User')).menu as Menu[]);
   }
 
 }
