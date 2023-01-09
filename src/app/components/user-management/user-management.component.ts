@@ -65,12 +65,10 @@ export class UserManagementComponent implements OnInit, OnDestroy {
     const dialogRef = this.dialog.open(DeleteUserComponent, { width: '40%', height: '50%' });
     dialogRef.afterClosed().subscribe(
       (result) => {
-        console.log(userId);
         if (result) {
-          this.subscription.push(this.userManagementService.deleteUser(userId).subscribe());
-        }
-        else {
-          console.log("false");
+          this.subscription.push(this.userManagementService.deleteUser(userId).subscribe(
+            () => this.callGetAPI()
+          ));
         }
       });
   }
