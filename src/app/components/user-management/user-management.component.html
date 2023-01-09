@@ -3,11 +3,11 @@
     <mat-form-field appearance="outline" fxFlex="100">
       <mat-label>cerca</mat-label>
       <input matInput type="search" formControlName="ctrlSearch" autocomplete="off">
-      <button matPrefix mat-icon-button>
+      <button matPrefix mat-icon-button (click)="callGetAPI()">
         <mat-icon>search</mat-icon>
       </button>
     </mat-form-field>
-    <mat-slide-toggle formControlName="ctrlActive" color="primary">
+    <mat-slide-toggle formControlName="ctrlActive" color="primary" (change)="callGetAPI()">
       {{search.controls['ctrlActive'].value ? 'attivi' : 'non attivi'}}
     </mat-slide-toggle>
     <span><button mat-button class="actionButton" (click)="addUser()">aggiungi</button></span>

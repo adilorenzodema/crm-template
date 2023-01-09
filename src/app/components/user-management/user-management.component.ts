@@ -58,7 +58,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
       (result) => {
         if (result) { this.callGetAPI(); };
       }
-    )
+    );
   }
 
   public onDelete(userId: number): void {
@@ -75,8 +75,10 @@ export class UserManagementComponent implements OnInit, OnDestroy {
       });
   }
 
-  private callGetAPI(): void {
-    this.subscription.push(this.userManagementService.getUserList().subscribe(
+  public callGetAPI(): void {
+    const keyword = this.search.get('ctrlSearch')?.value;
+    const isActive = this.search.get('ctrlActive')?.value;
+    this.subscription.push(this.userManagementService.getUserList(keyword, isActive).subscribe(
       users => (this.dataSource.data = users.userList, console.log(users))
     ));
   }

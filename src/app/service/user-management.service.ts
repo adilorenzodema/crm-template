@@ -14,10 +14,10 @@ export class UserManagementService {
   private apiURL = 'http://localhost:8080/api/manageUsers';
   constructor(private http: HttpClient) { }
 
-  getUserList(): Observable<{ userList: User[] }> {
+  getUserList(keyword: string, isActive: boolean): Observable<{ userList: User[] }> {
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
-      params: HttpUtils.createHttpParams({ token: this.getToken() })
+      params: HttpUtils.createHttpParams({ token: this.getToken(), keyword: keyword, active: isActive })
     };
     return this.http.get<{ userList: User[] }>(this.apiURL + '/getUsers', options)
       .pipe(catchError(err => { throw err; }));
@@ -55,7 +55,7 @@ export class UserManagementService {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
       params: HttpUtils.createHttpParams({ token: this.getToken() })
     };
-    return this.http.post(this.apiURL + '/deleteUser', userId)
+    return this.http.post(this.apiURL + '/deleteUser/' + userId, null, options)
       .pipe(catchError(err => { throw err; }));
   }
 
