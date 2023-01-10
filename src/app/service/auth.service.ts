@@ -35,6 +35,15 @@ export class AuthService {
       .pipe(catchError(err => { throw err; }));
   }
 
+  refreshToken(): Observable<void> {
+    const options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      params: HttpUtils.createHttpParams({ token: this.getToken() })
+    };
+    return this.http.post<void>(this.noAuthURL + '/refreshToken', { refreshToken: this.getRefreshToken() }, options)
+      .pipe(catchError(err => { throw err; }));
+  }
+
   getPermissionPage(menuItemKey: string): Observable<any> {
     const token = this.getToken();
     const options = {
@@ -47,5 +56,9 @@ export class AuthService {
 
   private getToken(): string {
     return JSON.parse(this.cookieService.get('User')).token;
+  }
+
+  private getRefreshToken(): string {
+    return JSON.parse(this.cookieService.get('User')).refreshToken;
   }
 }
