@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
@@ -15,7 +16,7 @@ import { ModalFormUserComponent } from './modal-form-user/modal-form-user.compon
   styleUrls: ['./user-management.component.css']
 })
 export class UserManagementComponent implements OnInit, OnDestroy {
-
+  @ViewChild('paginator') paginator!: MatPaginator ;
   public displayedColumns: string[] = ['userId', 'firstName', 'lastName', 'email', 'profile', 'action'];
   public dataSource = new MatTableDataSource<User>();
   public search!: FormGroup;
@@ -77,7 +78,8 @@ export class UserManagementComponent implements OnInit, OnDestroy {
     const keyword = this.search.get('ctrlSearch')?.value;
     const isActive = this.search.get('ctrlActive')?.value;
     this.subscription.push(this.userManagementService.getUserList(keyword, isActive).subscribe(
-      users => this.dataSource.data = users
+      users => {this.dataSource.data = users;
+        this.dataSource.paginator = this.paginator;}
     ));
   }
 
