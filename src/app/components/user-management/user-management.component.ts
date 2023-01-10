@@ -9,6 +9,8 @@ import { UserManagementService } from 'src/app/service/user-management.service';
 import { User } from '../domain/class';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
+import { MatSort, Sort} from '@angular/material/sort';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-user-management',
@@ -17,6 +19,7 @@ import { ModalFormUserComponent } from './modal-form-user/modal-form-user.compon
 })
 export class UserManagementComponent implements OnInit, OnDestroy {
   @ViewChild('paginator') paginator!: MatPaginator ;
+  @ViewChild(MatSort) sort!: MatSort;
   public displayedColumns: string[] = ['userId', 'firstName', 'lastName', 'email', 'profile', 'action'];
   public dataSource = new MatTableDataSource<User>();
   public search!: FormGroup;
@@ -26,7 +29,8 @@ export class UserManagementComponent implements OnInit, OnDestroy {
     private userManagementService: UserManagementService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private _liveAnnouncer: LiveAnnouncer) {
   }
 
   ngOnInit(): void {
@@ -79,8 +83,21 @@ export class UserManagementComponent implements OnInit, OnDestroy {
     const isActive = this.search.get('ctrlActive')?.value;
     this.subscription.push(this.userManagementService.getUserList(keyword, isActive).subscribe(
       users => {this.dataSource.data = users;
-        this.dataSource.paginator = this.paginator;}
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;}
     ));
+  }
+
+  public announceSortChange(sortState: Sort): void {
+    // This example uses English messages. If your application supports
+    // multiple language, you would internationalize these strings.
+    // Furthermore, you can customize the message to add additional
+    // details about the values being sorted.
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
   }
 
   private getPermissionAPI(): void {
