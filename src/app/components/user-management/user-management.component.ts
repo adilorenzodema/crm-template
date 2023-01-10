@@ -10,7 +10,6 @@ import { User } from '../domain/class';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 import { MatSort, Sort} from '@angular/material/sort';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-user-management',
@@ -29,8 +28,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
     private userManagementService: UserManagementService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private dialog: MatDialog,
-    private _liveAnnouncer: LiveAnnouncer) {
+    private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -86,18 +84,6 @@ export class UserManagementComponent implements OnInit, OnDestroy {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;}
     ));
-  }
-
-  public announceSortChange(sortState: Sort): void {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
   }
 
   private getPermissionAPI(): void {
