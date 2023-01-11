@@ -63,7 +63,12 @@ export class HttpConfigInterceptor implements HttpInterceptor {
           this.isRefreshing = false;
           this.cookieService.set('Token', JSON.stringify(user.token));
           this.cookieService.set('RefreshToken', JSON.stringify(user.refreshToken));
-          return next.handle(request);
+          const updateReq = request.clone({
+            setParams: {
+              token: user.token
+            }
+          });
+          return next.handle(updateReq);
         }),
         catchError((error) => {
           this.isRefreshing = false;
