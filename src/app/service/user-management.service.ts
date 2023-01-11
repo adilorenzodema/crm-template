@@ -60,6 +60,15 @@ export class UserManagementService {
       .pipe(catchError(err => { throw err; }));
   }
 
+  activateUser(userId: number): Observable<unknown> {
+    const options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      params: HttpUtils.createHttpParams({ token: this.getToken() })
+    };
+    return this.http.post(this.apiURL + '/activeUser/' + userId, null, options)
+      .pipe(catchError(err => { throw err; }));
+  }
+
 
   private getToken(): string {
     return JSON.parse(this.cookieService.get('Token'));

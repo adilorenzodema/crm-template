@@ -14,6 +14,7 @@ export class User {
   lastName: string;
   email: string;
   profile: string;
+  //aggiungere profileCode
   constructor( firstName:string, lastName: string,email: string, profile: string, userId?: number){
     this.firstName = firstName;
     this.lastName = lastName;

@@ -6,13 +6,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/modules/material.module';
 import { UserManagementRoutingModule } from './user-management.routing';
-import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { ModalFormConfirmComponent } from './modal-form-confirm/modal-form-confirm.component';
 
 @NgModule({
   declarations: [
     UserManagementComponent,
     ModalFormUserComponent,
-    DeleteUserComponent
+    ModalFormConfirmComponent
   ],
   imports: [
     CommonModule,

@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserManagementService } from 'src/app/service/user-management.service';
 import { User } from '../domain/class';
-import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { ModalFormConfirmComponent } from './modal-form-confirm/modal-form-confirm.component';
 import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 import { MatSort, Sort} from '@angular/material/sort';
 
@@ -65,11 +65,23 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   }
 
   public onDelete(userId: number): void {
-    const dialogRef = this.dialog.open(DeleteUserComponent, { width: '40%', height: '50%' });
+    const dialogRef = this.dialog.open(ModalFormConfirmComponent, { width: '40%', height: '50%', data:{isDelete:true}});
     dialogRef.afterClosed().subscribe(
       (result) => {
         if (result) {
           this.subscription.push(this.userManagementService.deleteUser(userId).subscribe(
+            () => this.callGetAPI()
+          ));
+        }
+      });
+  }
+
+  public onActivate(userId: number): void {
+    const dialogRef = this.dialog.open(ModalFormConfirmComponent, { width: '40%', height: '50%', data:{isDelete:false} });
+    dialogRef.afterClosed().subscribe(
+      (result) => {
+        if (result) {
+          this.subscription.push(this.userManagementService.activateUser(userId).subscribe(
             () => this.callGetAPI()
           ));
         }
