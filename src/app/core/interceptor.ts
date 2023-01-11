@@ -37,7 +37,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
         } else if (error.status === 401) {
           return this.handle401Error(request, next);
         } else if (error.status === 403) { // non valido
-          this.cookieService.delete('User');
+          this.cookieService.deleteAll();
           this.router.navigate(['/login']);
           return throwError(() => error);
         } /* else { // altri errori non mappati
@@ -61,12 +61,12 @@ export class HttpConfigInterceptor implements HttpInterceptor {
       return this.authService.refreshToken().pipe(
         switchMap((user) => {
           this.isRefreshing = false;
-          this.cookieService.set('User', JSON.stringify(user));
+          this.cookieService.set('Token', JSON.stringify(user.token));
+          this.cookieService.set('RefreshToken', JSON.stringify(user.refreshToken));
           return next.handle(request);
         }),
         catchError((error) => {
           this.isRefreshing = false;
-          console.log(error)
           return throwError(() => error);
         })
       );

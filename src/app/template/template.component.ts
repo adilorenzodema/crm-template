@@ -19,7 +19,7 @@ export class TemplateComponent {
     this.authService.logout().subscribe({
       next: (resp) => console.log(resp),
       complete: () => {
-        this.cookiService.delete('User');
+        this.cookiService.deleteAll();
         this.router.navigate(['/login']);
       }
     });

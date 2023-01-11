@@ -25,8 +25,6 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    console.log("sono il data" + this.data);
-    console.log("userId" + this.data.userId);
     this.getProfiles();
     if (this.data) {
       this.inputUserForm = this.formBuilder.group({
@@ -37,8 +35,6 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
       });
 
     } else {
-      console.log("Entrato nella add!");
-      console.log(this.data);
       this.inputUserForm = this.formBuilder.group({
         ctrlName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
         ctrlSurname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
@@ -77,7 +73,7 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
       this.userManagementService.editUser(formUserEdit).subscribe({
         next: (data: User) => {
           console.log(data);
-          this.snackBar.open("Utente modificato!", "X",{
+          this.snackBar.open("Utente modificato!", "X", {
             duration: 3000,
             horizontalPosition: 'center',
             verticalPosition: 'top',
@@ -102,6 +98,7 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
 
   private getProfiles(): void {
     this.subscription.push(this.userManagementService.getProfileList().subscribe((res) => {
-      this.dropdownData = res}));
+      this.dropdownData = res;
+    }));
   }
 }

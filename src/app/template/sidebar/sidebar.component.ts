@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   constructor(private cookieService: CookieService) { }
 
   ngOnInit(): void {
-    this.menuItems = (JSON.parse(this.cookieService.get('User')).menu as Menu[]);
+    this.menuItems = (JSON.parse(this.cookieService.get('Menu')) as Menu[]);
   }
 
 }

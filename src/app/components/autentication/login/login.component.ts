@@ -31,8 +31,11 @@ export class LoginComponent implements OnInit {
     const password = this.formGroup.get('ctrlPasw')?.value;
     const formUser = new LoginUser(mail, password);
     this.autService.login(formUser).subscribe(
-      (user) => {
-        this.cookieService.set('User', JSON.stringify(user));
+      (userInfo) => {
+        this.cookieService.set('User', JSON.stringify(userInfo.user));
+        this.cookieService.set('Menu', JSON.stringify(userInfo.menu));
+        this.cookieService.set('Token', JSON.stringify(userInfo.token));
+        this.cookieService.set('RefreshToken', JSON.stringify(userInfo.refreshToken));
         this.router.navigate(['/']);
       }
     );

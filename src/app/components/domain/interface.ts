@@ -10,8 +10,9 @@ export interface Menu {
 }
 
 export interface UserPermission {
-  utente: User;
+  user: User;
   token: string;
+  refreshToken: string;
   menu: Menu[];
 }
 

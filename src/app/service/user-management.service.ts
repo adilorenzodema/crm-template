@@ -62,6 +62,6 @@ export class UserManagementService {
 
 
   private getToken(): string {
-    return JSON.parse(this.cookieService.get('User')).token;
+    return JSON.parse(this.cookieService.get('Token'));
   }
 }

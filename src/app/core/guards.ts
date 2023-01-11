@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     private cookiesService: CookieService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.cookiesService.get('User')) {
+    if (this.cookiesService.get('Token')) {
       // logged in so return true
       return true;
     }
