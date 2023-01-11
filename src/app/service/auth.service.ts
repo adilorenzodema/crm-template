@@ -45,12 +45,16 @@ export class AuthService {
   }
 
   sendMailResetPassword(mail: string): Observable<void> {
-    return this.http.post<void>(this.noAuthURL + '/sendEmailResetPassword', {email: mail})
+    return this.http.post<void>(this.noAuthURL + '/sendEmailResetPassword', { email: mail })
       .pipe(catchError(err => { throw err; }));
   }
 
-  changePassword(token: string, password: string): Observable<void> {
-    return this.http.post<void>(this.apiURL + '/sendEmailResetPassword', {token: token, password: password})
+  resetPassword(token: string, password: string): Observable<void> {
+    const options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      params: HttpUtils.createHttpParams({ token: token })
+    };
+    return this.http.post<void>(this.apiURL + '/resetPassword', { newPassword: password }, options)
       .pipe(catchError(err => { throw err; }));
   }
 

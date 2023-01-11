@@ -46,8 +46,13 @@ export class ResetPasswordComponent implements OnInit {
         panelClass: 'ERROR'
       });
     } else {
-      this.authService.changePassword(this.token, password).subscribe(
-        (resp) => console.log(resp)
+      this.authService.resetPassword(this.token, password).subscribe(
+        () => this.snackBar.open('Password modificata', "X", {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: 'INFO'
+        })
       );
     }
   }

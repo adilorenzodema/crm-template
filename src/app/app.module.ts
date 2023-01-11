@@ -10,7 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/autentication/login/login.component';
 import { MaterialModule } from './shared/modules/material.module';
 import { TemplateModule } from './template/template.module';
-import { ChangePasswordComponent } from './components/autentication/change-password/change-password.component';
+import { SendMailComponent } from './components/autentication/send-mail/send-mail.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpConfigInterceptor } from './core/interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -27,7 +27,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    ChangePasswordComponent,
+    SendMailComponent,
     ResetPasswordComponent
   ],
   imports: [

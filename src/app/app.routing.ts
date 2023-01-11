@@ -4,13 +4,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './core/guards';
 import { LoginComponent } from './components/autentication/login/login.component';
 import { TemplateComponent } from './template/template.component';
-import { ChangePasswordComponent } from './components/autentication/change-password/change-password.component';
+import { SendMailComponent } from './components/autentication/send-mail/send-mail.component';
 import { ResetPasswordComponent } from './components/autentication/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'change-password', component: ChangePasswordComponent },
-  { path: 'resetPassword', component: ResetPasswordComponent },
+  { path: 'send-mail', component: SendMailComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
   {
     path: '', component: TemplateComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
