@@ -28,4 +28,11 @@ export class ChangePasswordComponent implements OnInit {
     });
   }
 
+  public sendMail(): void {
+    const mail = this.formGroup.get('ctrlMail')?.value;
+    this.autService.sendMailResetPassword(mail).subscribe(
+      (resp) => console.log(resp)
+    );
+  }
+
 }

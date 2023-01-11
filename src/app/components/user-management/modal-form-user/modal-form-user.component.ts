@@ -21,7 +21,7 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
     @Inject(MAT_DIALOG_DATA) public data: User,
     private formBuilder: FormBuilder,
     private userManagementService: UserManagementService,
-    private snackBar: MatSnackBar,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {

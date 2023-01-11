@@ -16,6 +16,7 @@ import { HttpConfigInterceptor } from './core/interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CookieService } from 'ngx-cookie-service';
+import { ResetPasswordComponent } from './components/autentication/reset-password/reset-password.component';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -26,7 +27,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

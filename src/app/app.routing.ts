@@ -5,10 +5,12 @@ import { AuthGuard } from './core/guards';
 import { LoginComponent } from './components/autentication/login/login.component';
 import { TemplateComponent } from './template/template.component';
 import { ChangePasswordComponent } from './components/autentication/change-password/change-password.component';
+import { ResetPasswordComponent } from './components/autentication/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'resetPassword', component: ResetPasswordComponent },
   {
     path: '', component: TemplateComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

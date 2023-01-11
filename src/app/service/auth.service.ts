@@ -44,6 +44,16 @@ export class AuthService {
       .pipe(catchError(err => { throw err; }));
   }
 
+  sendMailResetPassword(mail: string): Observable<void> {
+    return this.http.post<void>(this.noAuthURL + '/sendEmailResetPassword', {email: mail})
+      .pipe(catchError(err => { throw err; }));
+  }
+
+  changePassword(token: string, password: string): Observable<void> {
+    return this.http.post<void>(this.apiURL + '/sendEmailResetPassword', {token: token, password: password})
+      .pipe(catchError(err => { throw err; }));
+  }
+
   getPermissionPage(menuItemKey: string): Observable<any> {
     const token = this.getToken();
     const options = {
