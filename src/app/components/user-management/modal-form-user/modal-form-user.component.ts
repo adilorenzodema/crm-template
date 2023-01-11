@@ -60,7 +60,12 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
       this.userManagementService.addUser(formUserAdd).subscribe({
         next: (data: User) => {
           console.log(data);
-          this.snackBar.open("Utente inserito!", "X");
+          this.snackBar.open("Utente inserito!", "X", {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: 'INFO'
+          });
         },
         error: () => {
           this.snackBar.open("Errore!", "X");
