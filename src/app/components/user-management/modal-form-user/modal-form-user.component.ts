@@ -102,8 +102,6 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
 
   private getProfiles(): void {
     this.subscription.push(this.userManagementService.getProfileList().subscribe((res) => {
-      console.log("Entro nella profile list");
-      console.log(res);
       this.dropdownData = res}));
   }
 }
