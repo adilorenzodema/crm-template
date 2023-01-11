@@ -42,12 +42,12 @@ export class UserManagementService {
       .pipe(catchError(err => { throw err; }));
   }
 
-  getProfileList(): Observable<{ profileList: UserProfile[] }> {
+  getProfileList(): Observable<UserProfile[]> {
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
       params: HttpUtils.createHttpParams({ token: this.getToken() })
     };
-    return this.http.get<{ profileList: UserProfile[] }>(this.apiURL + '/getAllProfiles', options)
+    return this.http.get<UserProfile[]>(this.apiURL + '/getAllProfiles', options)
       .pipe(catchError(err => { throw err; }));
   }
 
