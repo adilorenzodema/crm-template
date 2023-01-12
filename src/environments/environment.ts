@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  header: {
+    imgSidebar: 'assets/images/logo-dema.png',
+    title: 'Template gui'
+  },
 };
 
 /*

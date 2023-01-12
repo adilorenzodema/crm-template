@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Menu } from 'src/app/components/domain/interface';
 
@@ -10,7 +10,9 @@ import { Menu } from 'src/app/components/domain/interface';
 })
 export class SidebarComponent implements OnInit {
   public menuItems: Menu[] = [];
-  constructor(private cookieService: CookieService) { }
+  constructor(
+    private cookieService: CookieService,
+    @Inject('header') public header: any) { }
 
   ngOnInit(): void {
     this.menuItems = (JSON.parse(this.cookieService.get('Menu')) as Menu[]);

@@ -40,7 +40,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
           this.cookieService.deleteAll();
           this.router.navigate(['/login']);
           return throwError(() => error);
-        } /* else { // altri errori non mappati
+        } else { // altri errori non mappati
           this.snackBar.open(this.translateService.instant("error.unknown"),
             '✖',
             {
@@ -50,8 +50,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
               panelClass: 'ERROR'
             });
           return throwError(() => error);
-        } */
-        return throwError(() => error);
+        }
       }));
   }
 

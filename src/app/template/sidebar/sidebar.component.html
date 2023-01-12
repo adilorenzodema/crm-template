@@ -1,7 +1,7 @@
 <div fxLayout="column">
     <div fxLayout="column" fxLayoutAlign="center" [style.padding]="'20px'">
-        <img src="assets/images/logo-dema.png" alt="headerImg" class="header-img">
-        <h3>template Gui</h3>
+        <img [src]="header.imgSidebar" alt="headerImg" class="header-img">
+        <h3>{{header.title}}</h3>
     </div>
     <mat-nav-list>
         <mat-list-item *ngFor="let menuItem of menuItems" routerLinkActive="selected">
