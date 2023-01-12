@@ -1,6 +1,7 @@
 {
   "error": {
     "login": "Username o password sbagliate.",
-    "unknown": "Errore sconosciuto."
+    "unknown": "Errore sconosciuto.",
+    "generic": "Errore lato server."
   }
 }
