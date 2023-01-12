@@ -19,10 +19,9 @@
     <mat-select formControlName="ctrlProfileCode" required>
       <mat-option>--</mat-option>
       <mat-option *ngFor="let profile of dropdownData" [value]="profile.profileCode">
-        {{ profile.profileCode }}
+        {{ profile.profileName }}
       </mat-option>
     </mat-select>
-    <!--  <mat-error *ngIf="animalControl.hasError('required')">Perfavore scegliere un profilo</mat-error> -->
   </mat-form-field>
 </form>
 <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">

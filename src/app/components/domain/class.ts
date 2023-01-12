@@ -13,13 +13,13 @@ export class User {
   firstName: string;
   lastName: string;
   email: string;
-  profile: string;
-  //aggiungere profileCode
-  constructor( firstName:string, lastName: string,email: string, profile: string, userId?: number){
+  profileCode: string;
+
+  constructor( firstName:string, lastName: string,email: string, profileCode:string, userId?: number){
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
-    this.profile = profile;
+    this.profileCode = profileCode;
     if (userId) this.userId = userId;
   }
 }

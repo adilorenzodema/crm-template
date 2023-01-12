@@ -31,7 +31,7 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
         ctrlName: [this.data.firstName, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
         ctrlSurname: [this.data.lastName, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
         ctrlEmail: [this.data.email, [Validators.required, Validators.email]],
-        ctrlProfileCode: [null, [Validators.required]],
+        ctrlProfileCode: [this.data.profileCode, [Validators.required]],
       });
 
     } else {
@@ -55,6 +55,8 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
     const surname = this.inputUserForm.get('ctrlSurname')?.value;
     const email = this.inputUserForm.get('ctrlEmail')?.value;
     const profileCode = this.inputUserForm.get('ctrlProfileCode')?.value;
+
+    console.log(profileCode);
     const formUserAdd = new User(name, surname, email, profileCode);
     if (isAdd) {
       this.userManagementService.addUser(formUserAdd).subscribe({

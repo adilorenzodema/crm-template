@@ -5,7 +5,7 @@ import { catchError, Observable, of } from 'rxjs';
 import { LoginUser } from '../components/domain/class';
 import { UserPermission } from '../components/domain/interface';
 import { HttpUtils } from '../shared/utils/httpUtils';
-import { loginUser } from './mokup/mokup';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class AuthService {
   public loginUser!: UserPermission;
   private noAuthURL = "http://localhost:8080/noAuth";
   private apiURL = "http://localhost:8080/auth";
-  private mokLoginUser = loginUser;
+
 
   constructor(
     private http: HttpClient,
@@ -23,7 +23,6 @@ export class AuthService {
   login(loginUser: LoginUser): Observable<UserPermission> {
     return this.http.post<UserPermission>(this.noAuthURL + '/login', loginUser)
       .pipe(catchError(err => { throw err; }));
-    /* return of(this.mokLoginUser); */
   }
 
   logout(): Observable<void> {

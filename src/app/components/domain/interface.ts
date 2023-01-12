@@ -18,5 +18,5 @@ export interface UserPermission {
 
 export interface UserProfile{
   profileCode: string ;
-  profileDescription: string;
+  profileName: string;
 }
