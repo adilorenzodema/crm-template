@@ -28,16 +28,16 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
     this.getProfiles();
     if (this.data) {
       this.inputUserForm = this.formBuilder.group({
-        ctrlName: [this.data.firstName, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-        ctrlSurname: [this.data.lastName, [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+        ctrlName: [this.data.firstName, [Validators.required, Validators.pattern('[a-zA-Z\u00C0-\u00FF]*')]],
+        ctrlSurname: [this.data.lastName, [Validators.required, Validators.pattern('[a-zA-Z\u00C0-\u00FF ]*')]],
         ctrlEmail: [this.data.email, [Validators.required, Validators.email]],
         ctrlProfileCode: [this.data.profileCode, [Validators.required]],
       });
 
     } else {
       this.inputUserForm = this.formBuilder.group({
-        ctrlName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-        ctrlSurname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+        ctrlName: ['', [Validators.required, Validators.pattern('[a-zA-Z\u00C0-\u00FF]*')]],
+        ctrlSurname: ['', [Validators.required, Validators.pattern('[a-zA-Z\u00C0-\u00FF ]*')]],
         ctrlEmail: ['', [Validators.required, Validators.email]],
         ctrlProfileCode: [null, [Validators.required]],
       });

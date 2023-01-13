@@ -29,3 +29,8 @@
 .page-content {
   padding: 20px;
 }
+
+.menu-dropdown {
+  width: 380px;
+  max-width: unset !important;
+}

@@ -57,6 +57,15 @@ export class AuthService {
       .pipe(catchError(err => { throw err; }));
   }
 
+  changePassword( newPassword: string, oldPassword: string): Observable<void> {
+    const options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      params: HttpUtils.createHttpParams({ token: this.getToken() })
+    };
+    return this.http.post<void>(this.apiURL + '/changePassword',  {newPassword: newPassword, oldPassword: oldPassword} , options)
+      .pipe(catchError(err => { throw err; }));
+  }
+
   getPermissionPage(menuItemKey: string): Observable<any> {
     const token = this.getToken();
     const options = {
