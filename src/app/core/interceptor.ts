@@ -12,7 +12,6 @@ import { AuthService } from '../service/auth.service';
 
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
-  private isRefreshing = false;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -55,27 +54,21 @@ export class HttpConfigInterceptor implements HttpInterceptor {
   }
 
   private handle401Error(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (!this.isRefreshing) {
-      this.isRefreshing = true;
-      return this.authService.refreshToken().pipe(
-        switchMap((user) => {
-          this.isRefreshing = false;
-          this.cookieService.set('Token', JSON.stringify(user.token));
-          this.cookieService.set('RefreshToken', JSON.stringify(user.refreshToken));
-          const updateReq = request.clone({
-            setParams: {
-              token: user.token
-            }
-          });
-          return next.handle(updateReq);
-        }),
-        catchError((error) => {
-          this.isRefreshing = false;
-          return throwError(() => error);
-        })
-      );
-    }
-    return next.handle(request);
+    return this.authService.refreshToken().pipe(
+      switchMap((user) => {
+        this.cookieService.set('Token', user.token);
+        this.cookieService.set('RefreshToken', user.refreshToken);
+        const updateReq = request.clone({
+          setParams: {
+            token: user.token
+          }
+        });
+        return next.handle(updateReq);
+      }),
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    );
   }
 }
 

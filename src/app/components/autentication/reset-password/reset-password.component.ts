@@ -29,7 +29,6 @@ export class ResetPasswordComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: { isChange: boolean }) { }
 
   ngOnInit(): void {
-    console.log(this.data);
     if (!this.data.isChange) {
       this.formGroup = this.formBuilder.group({
         ctrlNewPassword: ['', [Validators.required, Validators.minLength(8)]],
@@ -48,7 +47,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   public savePassword(): void {
-    console.log(this.token);
+
     const password = this.formGroup.get('ctrlNewPassword')?.value;
     const confirmPassword = this.formGroup.get('ctrlConfirmPassword')?.value;
     if (password !== confirmPassword) {

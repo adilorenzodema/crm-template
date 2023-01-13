@@ -56,12 +56,10 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
     const email = this.inputUserForm.get('ctrlEmail')?.value;
     const profileCode = this.inputUserForm.get('ctrlProfileCode')?.value;
 
-    console.log(profileCode);
     const formUserAdd = new User(name, surname, email, profileCode);
     if (isAdd) {
       this.userManagementService.addUser(formUserAdd).subscribe({
         next: (data: User) => {
-          console.log(data);
           this.snackBar.open("Utente inserito!", "X", {
             duration: 3000,
             horizontalPosition: 'center',
@@ -79,7 +77,6 @@ export class ModalFormUserComponent implements OnInit, OnDestroy {
       const formUserEdit = new User(name, surname, email, profileCode, userId);
       this.userManagementService.editUser(formUserEdit).subscribe({
         next: (data: User) => {
-          console.log(data);
           this.snackBar.open("Utente modificato!", "X", {
             duration: 3000,
             horizontalPosition: 'center',
