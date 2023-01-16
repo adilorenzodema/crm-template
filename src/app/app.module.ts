@@ -18,6 +18,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CookieService } from 'ngx-cookie-service';
 import { ResetPasswordComponent } from './components/autentication/reset-password/reset-password.component';
 import { environment } from 'src/environments/environment';
+import { LibTemplateModule } from 'projects/lib-template/src/lib/lib-template.module';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,6 +33,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     ResetPasswordComponent
   ],
   imports: [
+    LibTemplateModule,
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,

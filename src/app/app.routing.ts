@@ -6,13 +6,14 @@ import { LoginComponent } from './components/autentication/login/login.component
 import { TemplateComponent } from './template/template.component';
 import { SendMailComponent } from './components/autentication/send-mail/send-mail.component';
 import { ResetPasswordComponent } from './components/autentication/reset-password/reset-password.component';
+import { LibTemplateComponent } from 'projects/lib-template/src/lib/components/lib-template.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'send-mail', component: SendMailComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   {
-    path: '', component: TemplateComponent, children: [
+    path: '', component: LibTemplateComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       {
         path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]
