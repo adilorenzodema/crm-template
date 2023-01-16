@@ -1,7 +1,7 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #snav mode="side" opened class="example-sidenav" [fixedInViewport]="true" [fixedTopGap]="0"
         [fixedBottomGap]="0">
-        <!-- <app-sidebar></app-sidebar> <!--componente--> -->
+        <lib-sidebar></lib-sidebar> <!--componente-->
     </mat-sidenav>
 
     <mat-sidenav-content>
@@ -29,8 +29,8 @@
         </mat-toolbar>
         <div class="page-content">
             <!-- contenuto interno -->
-            <!-- <router-outlet></router-outlet> -->
+            <router-outlet></router-outlet>
         </div>
-        <!-- <app-footer></app-footer> -->
+        <lib-footer></lib-footer>
     </mat-sidenav-content>
 </mat-sidenav-container>
