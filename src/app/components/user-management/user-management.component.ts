@@ -9,7 +9,8 @@ import { UserManagementService } from 'src/app/service/user-management.service';
 import { User } from '../domain/class';
 import { ModalFormConfirmComponent } from './modal-form-confirm/modal-form-confirm.component';
 import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
-import { MatSort} from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
+import { Code, Operations, Permissions } from '../domain/interface';
 
 @Component({
   selector: 'app-user-management',
@@ -17,11 +18,12 @@ import { MatSort} from '@angular/material/sort';
   styleUrls: ['./user-management.component.css']
 })
 export class UserManagementComponent implements OnInit, OnDestroy {
-  @ViewChild('paginator') paginator!: MatPaginator ;
+  @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   public displayedColumns: string[] = ['userId', 'firstName', 'lastName', 'email', 'profile', 'action'];
   public dataSource = new MatTableDataSource<User>();
   public search!: FormGroup;
+  public operations: Operations[] = [];
   private subscription: Subscription[] = [];
 
   constructor(
@@ -47,7 +49,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   }
 
   public addUser(): void {
-    const dialogRef = this.dialog.open(ModalFormUserComponent, { width: '40%', height: '50%', data:"" });
+    const dialogRef = this.dialog.open(ModalFormUserComponent, { width: '40%', height: '50%', data: "" });
     dialogRef.afterClosed().subscribe(
       (result) => {
         if (result) { this.callGetAPI(); };
@@ -65,7 +67,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   }
 
   public onDelete(userId: number): void {
-    const dialogRef = this.dialog.open(ModalFormConfirmComponent, { width: '40%', height: '50%', data:{isDelete:true}});
+    const dialogRef = this.dialog.open(ModalFormConfirmComponent, { width: '40%', height: '50%', data: { isDelete: true } });
     dialogRef.afterClosed().subscribe(
       (result) => {
         if (result) {
@@ -77,7 +79,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   }
 
   public onActivate(userId: number): void {
-    const dialogRef = this.dialog.open(ModalFormConfirmComponent, { width: '40%', height: '50%', data:{isDelete:false} });
+    const dialogRef = this.dialog.open(ModalFormConfirmComponent, { width: '40%', height: '50%', data: { isDelete: false } });
     dialogRef.afterClosed().subscribe(
       (result) => {
         if (result) {
@@ -92,18 +94,33 @@ export class UserManagementComponent implements OnInit, OnDestroy {
     const keyword = this.search.get('ctrlSearch')?.value;
     const isActive = this.search.get('ctrlActive')?.value;
     this.subscription.push(this.userManagementService.getUserList(keyword, isActive).subscribe(
-      users => {this.dataSource.data = users;
+      users => {
+        this.dataSource.data = users;
         this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;}
+        this.dataSource.sort = this.sort;
+      }
     ));
   }
+
+  /* public getPermission(code: Code): boolean {
+    let value = false;
+    console.log('test');
+    this.operations.map(
+      (operation) => {
+        if (operation.code === code)
+          value = operation.value;
+      }
+    );
+    return value;
+  } */
 
   private getPermissionAPI(): void {
     const currentUrl = (window.location.pathname).replace('/', '');
     this.subscription.push(this.authService.getPermissionPage(currentUrl).subscribe(
-      resp => console.log(resp)
+      resp => this.operations = resp.operations
     ));
   }
+
 
 }
 

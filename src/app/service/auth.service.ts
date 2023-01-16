@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { catchError, Observable, of } from 'rxjs';
 import { LoginUser } from '../components/domain/class';
-import { UserPermission } from '../components/domain/interface';
+import { Permissions, UserPermission } from '../components/domain/interface';
 import { HttpUtils } from '../shared/utils/httpUtils';
 
 
@@ -66,13 +66,13 @@ export class AuthService {
       .pipe(catchError(err => { throw err; }));
   }
 
-  getPermissionPage(menuItemKey: string): Observable<any> {
+  getPermissionPage(menuItemKey: string): Observable<Permissions> {
     const token = this.getToken();
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
       params: HttpUtils.createHttpParams({ token, menuItemKey })
     };
-    return this.http.post<any>(this.apiURL + '/getPagePermissions', null, options)
+    return this.http.post<Permissions>(this.apiURL + '/getPagePermissions', null, options)
       .pipe(catchError(err => { throw err; }));
   }
 

@@ -29,7 +29,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     DashboardComponent,
     LoginComponent,
     SendMailComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

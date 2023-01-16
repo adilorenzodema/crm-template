@@ -7,12 +7,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/modules/material.module';
 import { UserManagementRoutingModule } from './user-management.routing';
 import { ModalFormConfirmComponent } from './modal-form-confirm/modal-form-confirm.component';
+import { GetPermissionPipePipe } from 'src/app/shared/pipes/get-permission-pipe.pipe';
+
+
 
 @NgModule({
   declarations: [
     UserManagementComponent,
     ModalFormUserComponent,
-    ModalFormConfirmComponent
+    ModalFormConfirmComponent,
+    GetPermissionPipePipe
   ],
   imports: [
     CommonModule,
