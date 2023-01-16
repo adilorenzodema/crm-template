@@ -21,11 +21,11 @@ export interface UserProfile {
   profileName: string;
 }
 
-export type Code = 'delete-user' | 'edit-user' | 'insert-user' | 'view-user';
+export type Code = 'delete-user' | 'edit-user' | 'insert-user' | 'view-user' | 'activate-user';
 export interface Operations {
   code: Code;
   description: string;
-  value: boolean;
+  value: string;
 }
 export interface Permissions {
   menuItemKey: string;

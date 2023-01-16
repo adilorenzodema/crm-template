@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private getPermissionAPI(): void {
     const currentUrl = (window.location.pathname).replace('/', '');
     this.subscription.push(this.authService.getPermissionPage(currentUrl).subscribe(
-      resp => console.log(resp)
+      resp => null
     ));
   }
 

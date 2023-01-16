@@ -55,7 +55,7 @@
           *ngIf="search.controls['ctrlActive'].value && operations | getPermissionPipe: 'delete-user' else isActive"><mat-icon
             style="color: red" (click)="onDelete(element.userId)">delete</mat-icon></button>
         <ng-template #isActive>
-          <button mat-icon-button *ngIf=" operations | getPermissionPipe: 'delete-user'"><mat-icon style="color: #479AED"
+          <button mat-icon-button *ngIf=" operations | getPermissionPipe: 'activate-user'"><mat-icon style="color: #479AED"
               (click)="onActivate(element.userId)">refresh</mat-icon></button>
         </ng-template>
       </td>

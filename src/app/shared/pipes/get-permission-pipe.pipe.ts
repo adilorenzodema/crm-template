@@ -7,16 +7,16 @@ import { Code, Operations } from 'src/app/components/domain/interface';
 export class GetPermissionPipePipe implements PipeTransform {
 
   transform(operations: Operations[], code: Code): boolean {
-    let value = false;
+    let value = '';
     if (operations) {
       operations.map(
-        (operation: { code: string; value: boolean }) => {
+        (operation: { code: string; value: string }) => {
           if (operation.code === code)
             value = operation.value;
         }
       );
     }
-    return value;
+    return value === 'true';
   }
 
 }
