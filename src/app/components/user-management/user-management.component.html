@@ -16,6 +16,8 @@
     </span>
   </form>
 
+    <mat-progress-bar *ngIf="progressBarDisplay" mode="indeterminate" value="40"  ></mat-progress-bar>
+
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     <!-- Property binding: e nel ts, datasource ha l'array di elementi -->
     <!-- Position Column -->
@@ -55,8 +57,8 @@
           *ngIf="search.controls['ctrlActive'].value && operations | getPermissionPipe: 'delete-user' else isActive"><mat-icon
             style="color: red" (click)="onDelete(element.userId)">delete</mat-icon></button>
         <ng-template #isActive>
-          <button mat-icon-button *ngIf=" operations | getPermissionPipe: 'activate-user'"><mat-icon style="color: #479AED"
-              (click)="onActivate(element.userId)">refresh</mat-icon></button>
+          <button mat-icon-button *ngIf=" operations | getPermissionPipe: 'activate-user'"><mat-icon
+              style="color: #479AED" (click)="onActivate(element.userId)">refresh</mat-icon></button>
         </ng-template>
       </td>
     </ng-container>

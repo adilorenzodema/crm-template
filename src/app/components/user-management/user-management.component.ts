@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Subscription } from 'rxjs';
+import { Subscription, withLatestFrom } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserManagementService } from 'src/app/service/user-management.service';
 import { User } from '../domain/class';
@@ -24,6 +24,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   public dataSource = new MatTableDataSource<User>();
   public search!: FormGroup;
   public operations: Operations[] = [];
+  public progressBarDisplay = false;
   private subscription: Subscription[] = [];
 
   constructor(
@@ -91,28 +92,19 @@ export class UserManagementComponent implements OnInit, OnDestroy {
   }
 
   public callGetAPI(): void {
+    this.progressBarDisplay = true;
     const keyword = this.search.get('ctrlSearch')?.value;
     const isActive = this.search.get('ctrlActive')?.value;
-    this.subscription.push(this.userManagementService.getUserList(keyword, isActive).subscribe(
-      users => {
+    this.subscription.push(this.userManagementService.getUserList(keyword, isActive).subscribe({
+      next: (users) => {
         this.dataSource.data = users;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-      }
-    ));
+      },
+      error: () => this.progressBarDisplay = false,
+      complete: () => this.progressBarDisplay = false
+    }));
   }
-
-  /* public getPermission(code: Code): boolean {
-    let value = false;
-    console.log('test');
-    this.operations.map(
-      (operation) => {
-        if (operation.code === code)
-          value = operation.value;
-      }
-    );
-    return value;
-  } */
 
   private getPermissionAPI(): void {
     const currentUrl = (window.location.pathname).replace('/', '');
