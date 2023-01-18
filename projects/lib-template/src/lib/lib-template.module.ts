@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { CookieService } from 'ngx-cookie-service';
 import { LibLoginComponent } from './components/autentication/login/login.component';
 import { LibResetPasswordComponent } from './components/autentication/reset-password/reset-password.component';
 import { LibSendMailComponent } from './components/autentication/send-mail/send-mail.component';
@@ -29,8 +31,10 @@ import { LibMaterialModule } from './shared/module/material.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    TranslateModule
   ],
+  providers: [CookieService],
   exports: [
     LibTemplateComponent,
     LibLoginComponent,

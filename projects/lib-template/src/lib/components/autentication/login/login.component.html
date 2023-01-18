@@ -17,7 +17,7 @@
                     <mat-error>password non inserita correttamente</mat-error>
                 </mat-form-field>
             </form>
-            <button mat-raised-button class="actionButton" [disabled]="formGroup.invalid">accedi</button>
+            <button mat-raised-button class="actionButton" [disabled]="formGroup.invalid" (click)="login()">accedi</button>
             <a [routerLink]="'../send-mail'"> Hai dimenticato la password?</a>
         </mat-card-content>
     </mat-card>

@@ -10,8 +10,10 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
-      "lib-template": ["dist/lib-template"],
-      "@angular/*": ["./node_modules/@angular/*"]
+      /* "lib-template": ["dist/lib-template"], */
+      "@angular/*": ["./node_modules/@angular/*"],
+      "rxjs": ["node_modules/rxjs"],
+      "rxjs/*": ["node_modules/rxjs/*"]
     },
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,

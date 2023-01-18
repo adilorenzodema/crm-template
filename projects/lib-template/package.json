@@ -10,7 +10,9 @@
     "@angular/flex-layout": "^14.0.0-beta.41",
     "@angular/forms": "^14.2.12",
     "@angular/material": "^14.2.7",
-    "rxjs": "^7.8.0",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
+    "ngx-cookie-service": "^14.0.1",
     "tslib": "^2.3.0",
     "typescript": "^4.6.4"
   }

@@ -41,7 +41,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
-    TemplateModule,
+    /* TemplateModule, */
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
