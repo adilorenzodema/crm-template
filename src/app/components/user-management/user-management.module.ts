@@ -4,9 +4,9 @@ import { UserManagementComponent } from './user-management.component';
 import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from 'src/app/shared/modules/material.module';
 import { UserManagementRoutingModule } from './user-management.routing';
 import { ModalFormConfirmComponent } from './modal-form-confirm/modal-form-confirm.component';
+import { LibMaterialModule } from 'projects/lib-template/src/lib/shared/module/material.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { ModalFormConfirmComponent } from './modal-form-confirm/modal-form-confi
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
+    LibMaterialModule,
     UserManagementRoutingModule
   ]
 })

@@ -4,7 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { catchError, Observable, of } from 'rxjs';
 import { User } from '../components/domain/class';
 import { UserProfile } from '../components/domain/interface';
-import { HttpUtils } from '../shared/utils/httpUtils';
+import { HttpUtils } from 'projects/lib-template/src/lib/shared/utils/httpUtils';
 //import { userMokup } from './mokup/mokup';
 
 @Injectable({

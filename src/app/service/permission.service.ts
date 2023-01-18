@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpUtils } from 'projects/lib-template/src/lib/shared/utils/httpUtils';
 import { catchError, Observable } from 'rxjs';
-import { HttpUtils } from '../shared/utils/httpUtils';
 
 
 @Injectable({
