@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { HttpUtils } from 'projects/movyon-template/src/lib/shared/utils/httpUtils';
+import { HttpUtils } from 'projects/dema-movyon-template/src/lib/shared/utils/httpUtils';
 import { catchError, Observable } from 'rxjs';
 
 

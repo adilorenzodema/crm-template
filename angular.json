@@ -117,23 +117,23 @@
         }
       }
     },
-    "movyon-template": {
+    "dema-movyon-template": {
       "projectType": "library",
-      "root": "projects/movyon-template",
-      "sourceRoot": "projects/movyon-template/src",
+      "root": "projects/dema-movyon-template",
+      "sourceRoot": "projects/dema-movyon-template/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/movyon-template/ng-package.json"
+            "project": "projects/dema-movyon-template/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/movyon-template/tsconfig.lib.prod.json"
+              "tsConfig": "projects/dema-movyon-template/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/movyon-template/tsconfig.lib.json"
+              "tsConfig": "projects/dema-movyon-template/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -141,17 +141,17 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/movyon-template/src/test.ts",
-            "tsConfig": "projects/movyon-template/tsconfig.spec.json",
-            "karmaConfig": "projects/movyon-template/karma.conf.js"
+            "main": "projects/dema-movyon-template/src/test.ts",
+            "tsConfig": "projects/dema-movyon-template/tsconfig.spec.json",
+            "karmaConfig": "projects/dema-movyon-template/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/movyon-template/**/*.ts",
-              "projects/movyon-template/**/*.html"
+              "projects/dema-movyon-template/**/*.ts",
+              "projects/dema-movyon-template/**/*.html"
             ]
           }
         }

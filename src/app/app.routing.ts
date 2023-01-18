@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LibTemplateComponent } from 'projects/movyon-template/src/lib/components/lib-template.component';
-import { LibLoginComponent } from 'projects/movyon-template/src/lib/components/autentication/login/login.component';
-import { LibResetPasswordComponent } from 'projects/movyon-template/src/lib/components/autentication/reset-password/reset-password.component';
-import { LibSendMailComponent } from 'projects/movyon-template/src/lib/components/autentication/send-mail/send-mail.component';
-import { AuthGuard } from 'projects/movyon-template/src/lib/core/guards';
+import { LibTemplateComponent } from 'projects/dema-movyon-template/src/lib/components/lib-template.component';
+import { LibLoginComponent } from 'projects/dema-movyon-template/src/lib/components/autentication/login/login.component';
+import { LibResetPasswordComponent } from 'projects/dema-movyon-template/src/lib/components/autentication/reset-password/reset-password.component';
+import { LibSendMailComponent } from 'projects/dema-movyon-template/src/lib/components/autentication/send-mail/send-mail.component';
+import { AuthGuard } from 'projects/dema-movyon-template/src/lib/core/guards';
 
 const routes: Routes = [
   { path: 'login', component: LibLoginComponent },

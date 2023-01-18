@@ -6,7 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserManagementRoutingModule } from './user-management.routing';
 import { ModalFormConfirmComponent } from './modal-form-confirm/modal-form-confirm.component';
-import { LibMaterialModule } from 'projects/movyon-template/src/lib/shared/module/material.module';
+import { LibMaterialModule } from 'projects/dema-movyon-template/src/lib/shared/module/material.module';
 
 @NgModule({
   declarations: [

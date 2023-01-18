@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
-import { AuthService } from 'projects/movyon-template/src/lib/service/auth-service.service';
+import { AuthService } from 'projects/dema-movyon-template/src/lib/service/auth-service.service';
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 

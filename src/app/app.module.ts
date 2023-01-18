@@ -12,8 +12,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from 'src/environments/environment';
-import { LibTemplateModule } from 'projects/movyon-template/src/lib/lib-template.module';
-import { LibMaterialModule } from 'projects/movyon-template/src/lib/shared/module/material.module';
+import { LibTemplateModule } from 'projects/dema-movyon-template/src/lib/lib-template.module';
+import { LibMaterialModule } from 'projects/dema-movyon-template/src/lib/shared/module/material.module';
 import { HttpConfigInterceptor } from './core/interceptor';
 
 

@@ -10,7 +10,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
-      "movyon-template": ["dist/movyon-template"],
+      "dema-movyon-template": ["dist/dema-movyon-template"],
       "@angular/*": ["./node_modules/@angular/*"],
       "rxjs": ["node_modules/rxjs"],
       "rxjs/*": ["node_modules/rxjs/*"]
