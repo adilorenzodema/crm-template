@@ -9,6 +9,9 @@
     "@angular/forms",
     "@angular/flex-layout",
     "@angular/material",
+    "@ngx-translate/core",
+    "@ngx-translate/http-loader",
+    "ngx-cookie-service",
     "rxjs",
     "typescript"
   ]

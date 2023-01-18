@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --port 4202",
     "build": "ng build",
+    "build-template": "cd projects/lib-template && npm install && ng build lib-template --configuration production && cd ../../dist/lib-template && npm pack",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"

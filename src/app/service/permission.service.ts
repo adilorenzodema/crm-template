@@ -1,9 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { catchError, Observable, of } from 'rxjs';
-import { LoginUser } from '../components/domain/class';
-import { UserPermission } from '../components/domain/interface';
+import { catchError, Observable } from 'rxjs';
 import { HttpUtils } from '../shared/utils/httpUtils';
 
 
@@ -11,8 +9,6 @@ import { HttpUtils } from '../shared/utils/httpUtils';
   providedIn: 'root'
 })
 export class PermissionService {
-  public loginUser!: UserPermission;
-  private noAuthURL = "http://localhost:8080/noAuth";
   private apiURL = "http://localhost:8080/auth";
 
 
@@ -32,9 +28,5 @@ export class PermissionService {
 
   private getToken(): string {
     return this.cookieService.get('Token');
-  }
-
-  private getRefreshToken(): string {
-    return this.cookieService.get('RefreshToken');
   }
 }

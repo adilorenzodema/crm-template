@@ -1,7 +1,5 @@
 import { User } from "./class";
 
-
-
 export interface Menu {
   id: number;
   code: string;
@@ -15,9 +13,4 @@ export interface UserPermission {
   token: string;
   refreshToken: string;
   menu: Menu[];
-}
-
-export interface UserProfile{
-  profileCode: string ;
-  profileName: string;
 }
