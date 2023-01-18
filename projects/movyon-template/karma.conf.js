@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/lib-template'),
+      dir: require('path').join(__dirname, '../../coverage/movyon-template'),
       subdir: '.',
       reporters: [
         { type: 'html' },

@@ -12,9 +12,10 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from 'src/environments/environment';
-import { LibTemplateModule } from 'projects/lib-template/src/lib/lib-template.module';
-import { LibMaterialModule } from 'projects/lib-template/src/lib/shared/module/material.module';
+import { LibTemplateModule } from 'projects/movyon-template/src/lib/lib-template.module';
+import { LibMaterialModule } from 'projects/movyon-template/src/lib/shared/module/material.module';
 import { HttpConfigInterceptor } from './core/interceptor';
+
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

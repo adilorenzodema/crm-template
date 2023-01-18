@@ -10,8 +10,8 @@
       ],
       "parserOptions": {
         "project": [
-          "projects/lib-template/tsconfig.lib.json",
-          "projects/lib-template/tsconfig.spec.json"
+          "projects/movyon-template/tsconfig.lib.json",
+          "projects/movyon-template/tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },
