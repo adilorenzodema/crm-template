@@ -4,9 +4,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
-import { AuthService } from 'projects/lib-template/src/lib/service/auth-service.service';
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
+import { AuthService } from '../service/auth-service.service';
+
+
 
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {

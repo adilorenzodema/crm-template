@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../../../service/auth-service.service';
 
 @Component({
   selector: 'lib-send-mail',
@@ -18,7 +19,8 @@ export class LibSendMailComponent implements OnInit {
 
   constructor(
     private snackBar: MatSnackBar,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -27,4 +29,15 @@ export class LibSendMailComponent implements OnInit {
     });
   }
 
+  public sendMail(): void {
+    const mail = this.formGroup.get('ctrlMail')?.value;
+    this.authService.sendMailResetPassword(mail).subscribe(
+      () => this.snackBar.open('Ti abbiamo inviato una mail all`indirizzo inserito', "X", {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: 'INFO'
+      })
+    );
+  }
 }

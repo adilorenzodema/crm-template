@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AuthGuard } from './core/guards';
 import { LibTemplateComponent } from 'projects/lib-template/src/lib/components/lib-template.component';
 import { LibLoginComponent } from 'projects/lib-template/src/lib/components/autentication/login/login.component';
 import { LibResetPasswordComponent } from 'projects/lib-template/src/lib/components/autentication/reset-password/reset-password.component';
 import { LibSendMailComponent } from 'projects/lib-template/src/lib/components/autentication/send-mail/send-mail.component';
+import { AuthGuard } from 'projects/lib-template/src/lib/core/guards';
 
 const routes: Routes = [
   { path: 'login', component: LibLoginComponent },

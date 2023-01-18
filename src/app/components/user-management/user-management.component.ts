@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/service/auth.service';
+import { PermissionService } from 'src/app/service/permission.service';
 import { UserManagementService } from 'src/app/service/user-management.service';
 import { User } from '../domain/class';
 import { ModalFormConfirmComponent } from './modal-form-confirm/modal-form-confirm.component';
@@ -26,7 +26,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
   constructor(
     private userManagementService: UserManagementService,
-    private authService: AuthService,
+    private permissionService: PermissionService,
     private formBuilder: FormBuilder,
     private dialog: MatDialog) {
   }
@@ -100,7 +100,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
   private getPermissionAPI(): void {
     const currentUrl = (window.location.pathname).replace('/', '');
-    this.subscription.push(this.authService.getPermissionPage(currentUrl).subscribe(
+    this.subscription.push(this.permissionService.getPermissionPage(currentUrl).subscribe(
       resp => console.log(resp)
     ));
   }
