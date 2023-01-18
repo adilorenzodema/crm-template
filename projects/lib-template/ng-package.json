@@ -3,5 +3,13 @@
   "dest": "../../dist/lib-template",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "@angular/animations",
+    "@angular/forms",
+    "@angular/flex-layout",
+    "@angular/material",
+    "rxjs",
+    "typescript"
+  ]
 }

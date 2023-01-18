@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { Menu } from 'src/app/components/domain/interface';
+import { Menu } from '../domain/interface';
 
 
 @Component({
