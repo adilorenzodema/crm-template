@@ -19,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: 'user-management',
-        loadChildren: () => import("src/app/components/user-management/user-management.module").then(m => m.UserManagementModule),
+        loadChildren: () => import("projects/dema-users-management/src/lib/dema-users-management.module").then(m => m.DemaUsersManagementModule),
         canActivate: [AuthGuard]
       }
     ]

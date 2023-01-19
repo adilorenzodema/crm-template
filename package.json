@@ -6,6 +6,7 @@
     "start": "ng serve --port 4202",
     "build": "ng build",
     "build-template": "cd projects/dema-movyon-template && npm install && ng build dema-movyon-template --configuration production && cd ../../dist/dema-movyon-template && npm pack",
+    "build-manage": "cd projects/dema-users-management && npm install && ng build dema-users-management --configuration production && cd ../../dist/dema-users-management && npm pack",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
