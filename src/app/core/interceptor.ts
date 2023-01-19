@@ -31,9 +31,11 @@ export class HttpConfigInterceptor implements HttpInterceptor {
               panelClass: 'ERROR'
             });
           return throwError(() => error);
-        } else if (error.status === 401) {
+        }
+        /* else if (error.status === 401) {
           return this.handle401Error(request, next);
-        } else if (error.status === 403) { // non valido
+        }  */
+        else if (error.status === 403) { // non valido
           this.cookieService.deleteAll();
           this.router.navigate(['/login']);
           return throwError(() => error);

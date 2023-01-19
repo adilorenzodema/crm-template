@@ -20,7 +20,6 @@ export class LibTemplateComponent {
 
   logout(): void {
     this.authService.logout().subscribe({
-      next: (resp) => console.log(resp),
       complete: () => {
         this.cookiService.deleteAll();
         this.router.navigate(['/login']);
