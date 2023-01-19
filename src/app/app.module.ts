@@ -14,8 +14,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { environment } from 'src/environments/environment';
 import { LibTemplateModule } from 'projects/dema-movyon-template/src/lib/lib-template.module';
 import { LibMaterialModule } from 'projects/dema-movyon-template/src/lib/shared/module/material.module';
-import { HttpConfigInterceptor } from './core/interceptor';
-
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,11 +43,6 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     })
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpConfigInterceptor,
-      multi: true,
-    },
     {
       provide: 'header',
       useValue: environment.header

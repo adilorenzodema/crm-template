@@ -12,6 +12,7 @@
     "paths": {
       "dema-movyon-template": ["dist/dema-movyon-template"],
       "dema-users-management": ["dist/dema-users-management"],
+      "@ngx-translate/*": [ "./node_modules/@ngx-translate/*"],
       "@angular/*": ["./node_modules/@angular/*"],
       "rxjs": ["node_modules/rxjs"],
       "rxjs/*": ["node_modules/rxjs/*"]

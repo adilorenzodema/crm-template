@@ -9,8 +9,8 @@
     "build-manage": "cd projects/dema-users-management && npm install && ng build dema-users-management --configuration production && cd ../../dist/dema-users-management && npm pack",
     "tag-template": "cd projects/dema-movyon-template && npm version patch",
     "tag-manage": "cd projects/dema-users-management && npm version patch",
-    "publish-template": "cd dist/dema-movyon-template && npm version patch && npm publish",
-    "publish-manage": "cd dist/dema-users-management && npm version patch && npm publish",
+    "publish-template": "npm run tag-template && npm run build-template && cd dist/dema-movyon-template && npm version patch && npm publish",
+    "publish-manage": "npm run tag-manage && npm run build-manage && cd dist/dema-users-management && npm version patch && npm publish",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"

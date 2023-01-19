@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,6 +12,7 @@ import { LibSendMailComponent } from './components/autentication/send-mail/send-
 import { LibFooterComponent } from './components/footer/footer.component';
 import { LibTemplateComponent } from './components/lib-template.component';
 import { LibSidebarComponent } from './components/sidebar/sidebar.component';
+import { HttpConfigInterceptor } from './core/interceptor';
 import { LibMaterialModule } from './shared/module/material.module';
 
 
@@ -34,7 +35,14 @@ import { LibMaterialModule } from './shared/module/material.module';
     RouterModule,
     TranslateModule
   ],
-  providers: [CookieService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpConfigInterceptor,
+      multi: true,
+    },
+    CookieService
+  ],
   exports: [
     LibTemplateComponent,
     LibLoginComponent,
