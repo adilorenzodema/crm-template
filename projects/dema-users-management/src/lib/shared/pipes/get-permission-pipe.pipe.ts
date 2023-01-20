@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Code, Operations } from 'src/app/components/domain/interface';
+import { Code, Operations } from '../../domain/interface';
+
 
 @Pipe({
   name: 'getPermissionPipe'
