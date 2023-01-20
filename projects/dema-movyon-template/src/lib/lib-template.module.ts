@@ -13,6 +13,7 @@ import { LibFooterComponent } from './components/footer/footer.component';
 import { LibTemplateComponent } from './components/lib-template.component';
 import { LibSidebarComponent } from './components/sidebar/sidebar.component';
 import { HttpConfigInterceptor } from './core/interceptor';
+import { LibTemplateRoutingModule } from './lib-template.routing';
 import { LibMaterialModule } from './shared/module/material.module';
 
 
@@ -32,7 +33,7 @@ import { LibMaterialModule } from './shared/module/material.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule,
+    LibTemplateRoutingModule,
     TranslateModule
   ],
   providers: [
