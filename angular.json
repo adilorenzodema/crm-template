@@ -116,6 +116,86 @@
           }
         }
       }
+    },
+    "dema-movyon-template": {
+      "projectType": "library",
+      "root": "projects/dema-movyon-template",
+      "sourceRoot": "projects/dema-movyon-template/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/dema-movyon-template/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dema-movyon-template/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/dema-movyon-template/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dema-movyon-template/src/test.ts",
+            "tsConfig": "projects/dema-movyon-template/tsconfig.spec.json",
+            "karmaConfig": "projects/dema-movyon-template/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/dema-movyon-template/**/*.ts",
+              "projects/dema-movyon-template/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "dema-users-management": {
+      "projectType": "library",
+      "root": "projects/dema-users-management",
+      "sourceRoot": "projects/dema-users-management/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/dema-users-management/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dema-users-management/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/dema-users-management/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dema-users-management/src/test.ts",
+            "tsConfig": "projects/dema-users-management/tsconfig.spec.json",
+            "karmaConfig": "projects/dema-users-management/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/dema-users-management/**/*.ts",
+              "projects/dema-users-management/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

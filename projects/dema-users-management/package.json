@@ -1,0 +1,12 @@
+{
+  "name": "dema-users-management",
+  "version": "0.0.3",
+  "peerDependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0"
+  },
+  "dependencies": {
+    "@angular/flex-layout": "^14.0.0-beta.41",
+    "tslib": "^2.3.0"
+  }
+}

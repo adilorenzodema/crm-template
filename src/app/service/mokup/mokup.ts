@@ -1,33 +1,35 @@
 import { User } from "src/app/components/domain/class";
-import { UserPermission } from "src/app/components/domain/interface";
 
 
-/*
 export const  userMokup: User[] = [
   {
-    id: 1,
-    name: "Giacomo",
-    surname: "Quaresima",
-    email:"giacomo@gmail.com"
+    userId: 1,
+    firstName: "Giacomo",
+    lastName: "Quaresima",
+    email:"giacomo@gmail.com",
+    profileCode: "test"
   },
   {
-    id: 2,
-    name: "Niccolò",
-    surname: "Arnetoli",
-    email:"niccolo@gmail.com"
+    userId: 2,
+    firstName: "Niccolò",
+    lastName: "Arnetoli",
+    email:"niccolo@gmail.com",
+    profileCode: "test"
   },
   {
-    id:3,
-    name: "Farnoosh",
-    surname: "Mohammadi",
-    email:"farnoosh@gmail.com"
+    userId:3,
+    firstName: "Farnoosh",
+    lastName: "Mohammadi",
+    email:"farnoosh@gmail.com",
+    profileCode: "test"
   },
   {
-    id:4,
-    name: "Andrea",
-    surname: "Di Lorenzo",
-    email:"andrea@gmail.com"
+    userId:4,
+    firstName: "Andrea",
+    lastName: "Di Lorenzo",
+    email:"andrea@gmail.com",
+    profileCode: "test"
   }
 ];
 
- */
+

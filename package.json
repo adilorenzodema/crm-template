@@ -5,6 +5,12 @@
     "ng": "ng",
     "start": "ng serve --port 4202",
     "build": "ng build",
+    "build-template": "cd projects/dema-movyon-template && npm install && ng build dema-movyon-template --configuration production && cd ../../dist/dema-movyon-template && npm pack",
+    "build-manage": "cd projects/dema-users-management && npm install && ng build dema-users-management --configuration production && cd ../../dist/dema-users-management && npm pack",
+    "tag-template": "cd projects/dema-movyon-template && npm version patch",
+    "tag-manage": "cd projects/dema-users-management && npm version patch",
+    "publish-template": "npm run build-template && npm run tag-template && cd dist/dema-movyon-template && npm version patch && npm publish",
+    "publish-manage": "npm run build-manage && npm run tag-manage  && cd dist/dema-users-management && npm version patch && npm publish",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
@@ -49,6 +55,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "ng-packagr": "^14.2.0",
     "typescript": "~4.7.2"
   }
 }
