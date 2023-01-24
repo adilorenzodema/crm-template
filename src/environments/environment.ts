@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  configFile: 'assets/config/config-test-app.json',
   header: {
     imgSidebar: 'assets/images/logo-dema.png',
     title: 'Template gui'

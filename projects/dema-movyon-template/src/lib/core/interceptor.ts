@@ -14,9 +14,9 @@ export class HttpConfigInterceptor implements HttpInterceptor {
   constructor(
     private snackBar: MatSnackBar,
     private translateService: TranslateService,
-    private authService: AuthService,
     private cookieService: CookieService,
-    private router: Router) { }
+    private router: Router,
+    private authService: AuthService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(

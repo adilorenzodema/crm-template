@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -13,6 +13,8 @@ import { LibFooterComponent } from './components/footer/footer.component';
 import { LibTemplateComponent } from './components/lib-template.component';
 import { LibSidebarComponent } from './components/sidebar/sidebar.component';
 import { HttpConfigInterceptor } from './core/interceptor';
+import { getPropertyFromConfig, initializeConfig } from './init/app.init';
+import { ConfigInitService } from './init/config-init.service';
 import { LibTemplateRoutingModule } from './lib-template.routing';
 import { LibMaterialModule } from './shared/module/material.module';
 
@@ -37,6 +39,17 @@ import { LibMaterialModule } from './shared/module/material.module';
     TranslateModule
   ],
   providers: [
+    { provide: 'be_url', useValue: 'be_url' },
+    {
+      provide: 'beUrl',
+      useFactory: getPropertyFromConfig, multi: false, deps: ['be_url', ConfigInitService]
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeConfig,
+      multi: true,
+      deps: [ConfigInitService]
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpConfigInterceptor,

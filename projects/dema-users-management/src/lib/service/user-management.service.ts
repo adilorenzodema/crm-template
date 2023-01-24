@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { catchError, Observable, of } from 'rxjs';
 import { User } from '../domain/class';
@@ -12,8 +12,11 @@ import { HttpUtils } from '../shared/utils/httpUtils';
 })
 export class UserManagementService {
 
-  private apiURL = 'http://localhost:8080/api/manageUsers';
-  constructor(private http: HttpClient, private cookieService: CookieService) { }
+  private apiURL = this.url + 'api/manageUsers';
+  constructor(
+    private http: HttpClient,
+    private cookieService: CookieService,
+    @Inject('beUrl') private url: string) { }
 
   getUserList(keyword: string, isActive: boolean): Observable<User[]> {
     const options = {
