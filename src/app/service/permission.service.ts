@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpUtils } from 'projects/dema-movyon-template/src/lib/shared/utils/httpUtils';
 import { catchError, Observable } from 'rxjs';
@@ -9,12 +9,13 @@ import { catchError, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PermissionService {
-  private apiURL = "http://localhost:8080/auth";
+  private apiURL = this.url + "auth";
 
 
   constructor(
     private http: HttpClient,
-    private cookieService: CookieService) { }
+    private cookieService: CookieService,
+    @Inject('beUrl') private url: string) { }
 
   getPermissionPage(menuItemKey: string): Observable<any> {
     const token = this.getToken();

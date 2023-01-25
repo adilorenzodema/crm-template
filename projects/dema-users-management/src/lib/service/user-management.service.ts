@@ -12,7 +12,7 @@ import { HttpUtils } from '../shared/utils/httpUtils';
 })
 export class UserManagementService {
 
-  private apiURL = this.url + 'api/manageUsers';
+  private apiURL = this.url + 'manageUsers';
   constructor(
     private http: HttpClient,
     private cookieService: CookieService,
