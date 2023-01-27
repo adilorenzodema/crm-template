@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PermissionService } from 'src/app/service/permission.service';
+import { PagePermissionService } from 'projects/dema-movyon-template/src/lib/service/pagePermission.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +9,7 @@ import { PermissionService } from 'src/app/service/permission.service';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   private subscription: Subscription[] = [];
-  constructor(private permissionService: PermissionService) { }
+  constructor(private permissionService: PagePermissionService) { }
 
   ngOnInit(): void {
     this.getPermissionAPI();
