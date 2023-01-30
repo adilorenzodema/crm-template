@@ -13,4 +13,5 @@ export * from './lib/service/pagePermission.service';
 export * from './lib/core/authGuard';
 export * from './lib/shared/module/material.module';
 export * from './lib/shared/utils/httpUtils';
+export * from './lib/shared/utils/snackBar.service';
 export * from './lib/lib-template.module';
