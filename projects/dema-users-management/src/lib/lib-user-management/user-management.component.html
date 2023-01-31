@@ -13,7 +13,7 @@
         {{search.controls['ctrlActive'].value ? 'attivi' : 'non attivi'}}
       </mat-slide-toggle>
       <span>
-        <button mat-button *ngIf=" operations | getPermissionPipe: 'insert-user'" class="actionButton"
+        <button mat-button *ngIf="operations | getPermissionPipe: 'insert-user'" class="actionButton"
           (click)="addUser()">aggiungi</button>
       </span>
     </form>
