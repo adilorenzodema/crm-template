@@ -18,7 +18,7 @@ import { LibModalFormUserComponent } from './modal-form-user/modal-form-user.com
   styleUrls: ['./user-management.component.css']
 })
 export class LibUserManagementComponent implements OnInit, OnDestroy {
-  @ViewChild('paginator') paginator!: MatPaginator ;
+  @ViewChild('paginator') paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   public displayedColumns: string[] = ['userId', 'firstName', 'lastName', 'email', 'profile', 'action'];
   public dataSource = new MatTableDataSource<User>();
@@ -50,7 +50,7 @@ export class LibUserManagementComponent implements OnInit, OnDestroy {
   }
 
   public addUser(): void {
-    const dialogRef = this.dialog.open(LibModalFormUserComponent, { width: '40%', height: '50%', data:"" });
+    const dialogRef = this.dialog.open(LibModalFormUserComponent, { width: '40%', height: '50%', data: "" });
     dialogRef.afterClosed().subscribe(
       (result) => {
         if (result) { this.callGetAPI(); };
@@ -68,7 +68,7 @@ export class LibUserManagementComponent implements OnInit, OnDestroy {
   }
 
   public onDelete(userId: number): void {
-    const dialogRef = this.dialog.open(LibModalFormConfirmComponent, { width: '40%', height: '50%', data:{isDelete:true}});
+    const dialogRef = this.dialog.open(LibModalFormConfirmComponent, { width: '40%', height: '30%', data: { isDelete: true } });
     dialogRef.afterClosed().subscribe(
       (result) => {
         if (result) {
@@ -80,7 +80,7 @@ export class LibUserManagementComponent implements OnInit, OnDestroy {
   }
 
   public onActivate(userId: number): void {
-    const dialogRef = this.dialog.open(LibModalFormConfirmComponent, { width: '40%', height: '50%', data:{isDelete:false} });
+    const dialogRef = this.dialog.open(LibModalFormConfirmComponent, { width: '40%', height: '30%', data: { isDelete: false } });
     dialogRef.afterClosed().subscribe(
       (result) => {
         if (result) {
