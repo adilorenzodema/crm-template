@@ -9,9 +9,8 @@ import { HttpUtils } from '../shared/utils/httpUtils';
 @Injectable({
   providedIn: 'root'
 })
-export class PermissionService {
+export class PagePermissionService {
   private apiURL = this.url + "auth";
-
 
   constructor(
     private http: HttpClient,

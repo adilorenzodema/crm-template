@@ -2,15 +2,15 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
+import { User } from '../domain/class';
+import { Operations } from '../domain/interface';
+import { PagePermissionService } from '../service/page-permission.service';
+import { UserManagementService } from '../service/user-management.service';
 import { LibModalFormConfirmComponent } from './modal-form-confirm/modal-form-confirm.component';
 import { LibModalFormUserComponent } from './modal-form-user/modal-form-user.component';
-import { MatSort} from '@angular/material/sort';
-import { User } from '../domain/class';
-import { UserManagementService } from '../service/user-management.service';
-import { PermissionService } from '../service/permission.service';
-import { Operations } from '../domain/interface';
 
 @Component({
   selector: 'lib-user-management',
@@ -29,7 +29,7 @@ export class LibUserManagementComponent implements OnInit, OnDestroy {
 
   constructor(
     private userManagementService: UserManagementService,
-    private permissionService: PermissionService,
+    private permissionService: PagePermissionService,
     private formBuilder: FormBuilder,
     private dialog: MatDialog) {
   }
