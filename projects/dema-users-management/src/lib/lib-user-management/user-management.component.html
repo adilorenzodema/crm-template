@@ -1,18 +1,18 @@
 <mat-card fxLayout="column" fxLayoutGap="20px">
   <mat-card-title>Gestione Utenti</mat-card-title>
   <mat-card-content fxLayout="column" fxLayoutGap="10px">
-    <form [formGroup]="search" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
-      <mat-form-field appearance="outline" fxFlex="88">
+    <form [formGroup]="search" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+      <mat-form-field appearance="outline" fxFlex="84">
         <mat-label>cerca</mat-label>
         <input matInput type="search" formControlName="ctrlSearch" autocomplete="off">
         <button matPrefix mat-icon-button (click)="callGetAPI()">
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
-      <mat-slide-toggle formControlName="ctrlActive" color="primary" fxFlex="7" (change)="callGetAPI()">
+      <mat-slide-toggle formControlName="ctrlActive" color="primary" (change)="callGetAPI()">
         {{search.controls['ctrlActive'].value ? 'attivi' : 'non attivi'}}
       </mat-slide-toggle>
-      <button mat-button class="actionButton" fxFlex="5" *ngIf="operations | getPermissionPipe: 'insert-user'"
+      <button mat-button class="actionButton" *ngIf="operations | getPermissionPipe: 'insert-user'"
         (click)="addUser()">aggiungi</button>
     </form>
 
