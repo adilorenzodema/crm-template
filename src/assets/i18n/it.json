@@ -1,6 +1,11 @@
 {
+  "template": {
+    "change_password": "Cambia password"
+  },
+  "manage_users": {
+    "searchLabel": "cerca"
+  },
   "text": "testo",
-  "searchLabel": "cerca",
   "active": "attivo",
   "inactive": "inattivo",
   "add": "Aggiungi",
