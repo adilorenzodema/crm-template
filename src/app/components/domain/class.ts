@@ -1,4 +1,3 @@
-import { TranslateService } from "@ngx-translate/core";
 
 export class User {
   userId?: number;
@@ -16,24 +15,5 @@ export class User {
   }
 }
 
-export class Language {
-  selectLanguage!: string;
-  translateLanguage: string[] = [];
-
-  constructor(public translate: TranslateService) {
-    translate.setDefaultLang('it');
-    translate.addLangs(['it', 'en']);
-    translate.use('it');
-    this.getTranslateLanguage();
-  }
-
-  setTranslateLanguage(): void {
-    this.translate.use(this.selectLanguage);
-  }
-  getTranslateLanguage(): void {
-    this.translateLanguage = this.translate.getLangs();
-  }
-
-}
 
 

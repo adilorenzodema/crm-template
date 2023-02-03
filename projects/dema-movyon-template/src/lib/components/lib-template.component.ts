@@ -1,11 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../service/auth-service.service';
 import { LibResetPasswordComponent } from './autentication/reset-password/reset-password.component';
-import { Language } from 'src/app/components/domain/class';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'lib-template',
@@ -13,7 +12,6 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['lib-template.component.css']
 })
 export class LibTemplateComponent {
-  language!: Language;
   constructor(
     public translateService: TranslateService,
     private router: Router,
