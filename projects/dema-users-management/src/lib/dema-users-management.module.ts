@@ -8,6 +8,7 @@ import { LibModalFormUserComponent } from './lib-user-management/modal-form-user
 import { LibUserManagementComponent } from './lib-user-management/user-management.component';
 import { LibMaterialModule } from './shared/module/material.module';
 import { GetPermissionPipePipe } from './shared/pipes/get-permission-pipe.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -24,7 +25,8 @@ import { GetPermissionPipePipe } from './shared/pipes/get-permission-pipe.pipe';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    UserManagementRoutingModule
+    UserManagementRoutingModule,
+    TranslateModule
   ],
   exports: []
 })

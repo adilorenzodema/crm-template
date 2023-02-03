@@ -1,4 +1,9 @@
 {
+  "text": "testo",
+  "searchLabel": "cerca",
+  "active": "attivo",
+  "inactive": "inattivo",
+  "add": "Aggiungi",
   "error": {
     "login": "Username o password sbagliate",
     "unknown": "Errore sconosciuto",

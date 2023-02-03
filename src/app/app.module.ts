@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 import { LibTemplateModule } from 'projects/dema-movyon-template/src/lib/lib-template.module';
 import { LibMaterialModule } from 'projects/dema-movyon-template/src/lib/shared/module/material.module';
 
+
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
