@@ -32,7 +32,6 @@ export class Language {
   }
   getTranslateLanguage(): void {
     this.translateLanguage = this.translate.getLangs();
-    console.log("linguaggi" + this.translateLanguage);
   }
 
 }

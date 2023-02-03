@@ -1,5 +1,5 @@
 <mat-card fxLayout="column" fxLayoutGap="20px">
-  <mat-card-title>Gestione Utenti</mat-card-title>
+  <mat-card-title>{{'manage_users.title' | translate}}</mat-card-title>
   <mat-card-content fxLayout="column" fxLayoutGap="10px">
     <form [formGroup]="search" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
       <mat-form-field appearance="outline" fxFlex="84">
@@ -10,10 +10,10 @@
         </button>
       </mat-form-field>
       <mat-slide-toggle formControlName="ctrlActive" color="primary" (change)="callGetAPI()">
-        {{search.controls['ctrlActive'].value ? 'attivi' : 'non attivi'}}
+        {{search.controls['ctrlActive'].value ? ('manage_users.active' | translate) : ('manage_users.inactive' | translate)}}
       </mat-slide-toggle>
       <button mat-button class="actionButton" *ngIf="operations | getPermissionPipe: 'insert-user'"
-        (click)="addUser()">aggiungi</button>
+        (click)="addUser()">{{'manage_users.add' | translate }}</button>
     </form>
 
     <mat-progress-bar *ngIf="progressBarDisplay" mode="indeterminate"></mat-progress-bar>
@@ -29,36 +29,36 @@
       </ng-container>
 
       <ng-container matColumnDef="firstName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'manage_users.name' | translate}} </th>
         <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Surname </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'manage_users.surname' | translate}} </th>
         <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef> E-mail </th>
+        <th mat-header-cell *matHeaderCellDef> {{'manage_users.email' | translate}} </th>
         <td mat-cell *matCellDef="let element"> {{element.email}} </td>
       </ng-container>
 
       <ng-container matColumnDef="profile">
-        <th mat-header-cell *matHeaderCellDef> Profile</th>
+        <th mat-header-cell *matHeaderCellDef> {{'manage_users.profile' | translate}}</th>
         <td mat-cell *matCellDef="let element"> {{element.profileName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element" style="text-align: end;">
-          <button mat-icon-button matTooltip="modifica" (click)="onEdit(element)"
+          <button mat-icon-button matTooltip="{{'manage_users.edit' | translate}}" (click)="onEdit(element)"
             *ngIf=" operations | getPermissionPipe: 'edit-user'"><mat-icon
               style="color:#479AED">edit</mat-icon></button>
-          <button mat-icon-button matTooltip="disattiva" (click)="onDelete(element.userId)"
+          <button mat-icon-button matTooltip="{{'manage_users.disactivate' | translate}}" (click)="onDelete(element.userId)"
             *ngIf="search.controls['ctrlActive'].value && operations | getPermissionPipe: 'delete-user' else isActive"><mat-icon
               style="color: red">delete</mat-icon></button>
           <ng-template #isActive>
-            <button mat-icon-button matTooltip="riattiva" (click)="onActivate(element.userId)"
+            <button mat-icon-button matTooltip="{{'manage_users.activate' | translate}}" (click)="onActivate(element.userId)"
               *ngIf=" operations | getPermissionPipe: 'activate-user'"><mat-icon
                 style="color: #479AED">refresh</mat-icon></button>
           </ng-template>

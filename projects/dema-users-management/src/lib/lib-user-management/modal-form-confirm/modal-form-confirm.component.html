@@ -1,10 +1,10 @@
 <div fxLayout="column" fxLayoutAlign="center center">
-  <h1 mat-dialog-title> {{ data.isDelete ? 'Disattivazione utente' : 'Attivazione utente'}}</h1>
+  <h1 mat-dialog-title> {{ data.isDelete ? ('manage_users.disactivateTitle' | translate) : ('manage_users.activateTitle' | translate)}}</h1>
   <div mat-dialog-content>
-    {{ data.isDelete ? 'Vorresti disattivare l`utente selezionato?' : 'Vorresti ri-attivare l`utente selezionato?'}}
+    {{ data.isDelete ? ('manage_users.disactivateConfirm' | translate) : ('manage_users.disactivateConfirm' | translate) }}
   </div>
   <div mat-dialog-actions>
     <button mat-raised-button (click)="dialogRef.close(false)">No</button>
-    <button mat-raised-button color="primary" (click)="dialogRef.close(true)">Si</button>
+    <button mat-raised-button color="primary" (click)="dialogRef.close(true)">{{'yes' | translate}}</button>
   </div>
 </div>

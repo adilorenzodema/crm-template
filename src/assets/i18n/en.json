@@ -1,14 +1,31 @@
 {
+  "yes": "Yes",
   "template": {
     "change_password": "Change password"
   },
   "manage_users": {
-    "searchLabel": "search"
+    "searchLabel": "Search",
+    "title":"Manage Users",
+    "add": "Add",
+    "active": "Active",
+    "inactive": "Inactive",
+    "name": "Name",
+    "surname": "Surname",
+    "email": "E-mail",
+    "profile": "Profile",
+    "edit": "Edit",
+    "disactivate": "Disactivate",
+    "activate": "Activate",
+    "nameError": "A name can only contain letters, spaces or apostrophe.",
+    "surnameError": "A surname can only contain letters, spaces or apostrophe.",
+    "emailError": "Please insert a valid e-email.",
+    "cancel": "Cancel",
+    "activateTitle": "Activate User",
+    "disactivateTitle": "Disactivate User",
+    "activateConfirm": "Are you sure you want to re-activate the selected user?",
+    "disactivateConfirm": "Are you sure you want to disactivate the selected user?"
   },
   "text": "text",
-  "active": "active",
-  "inactive": "inactive",
-  "add": "add",
   "error": {
     "login": "Username or password wrong",
     "unknown": "Error unknown",
