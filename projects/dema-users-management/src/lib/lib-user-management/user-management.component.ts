@@ -108,7 +108,7 @@ export class LibUserManagementComponent implements OnInit, OnDestroy {
   }
 
   private getPermissionAPI(): void {
-    const currentUrl = (window.location.pathname).replace('/', '');
+    const currentUrl = (window.location.hash).replace('#/', '');
     this.subscription.push(this.permissionService.getPermissionPage(currentUrl).subscribe(
       permission => this.operations = permission.operations
     ));

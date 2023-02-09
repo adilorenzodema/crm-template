@@ -12,6 +12,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'src/environments/environment';
 import { LibTemplateModule } from 'projects/dema-movyon-template/src/lib/lib-template.module';
 import { LibMaterialModule } from 'projects/dema-movyon-template/src/lib/shared/module/material.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
@@ -45,7 +46,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     {
       provide: 'header', useValue: environment.header
     },
-    { provide: 'env', useValue: environment }
+    { provide: 'env', useValue: environment },
+    { provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
