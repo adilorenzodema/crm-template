@@ -1,3 +1,9 @@
+import {
+  NgxMatDateAdapter,
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
 import { NgModule } from '@angular/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -6,7 +12,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { DateAdapter, MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -31,6 +37,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { TranslateService } from '@ngx-translate/core';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 /**
  * NgModule that includes all Material modules that are required to app.
  */
@@ -68,10 +76,26 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule,
+    NgxMatTimepickerModule,
+    NgxMaterialTimepickerModule
   ]
 })
 export class LibMaterialModule {
+  constructor(
+    private dateAdapter: DateAdapter<any>,
+    private ngxDateAdapter: NgxMatDateAdapter<any>,
+    private translate: TranslateService
+  ) {
+    this.dateAdapter.setLocale(this.translate.currentLang);
+    this.ngxDateAdapter.setLocale(this.translate.currentLang);
+    this.translate.onLangChange.subscribe(() => {
+      this.dateAdapter.setLocale(this.translate.currentLang);
+      this.ngxDateAdapter.setLocale(this.translate.currentLang);
+    });
+  }
 }
 
 

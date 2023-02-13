@@ -5,12 +5,14 @@
     "entryFile": "src/public-api.ts"
   },
   "allowedNonPeerDependencies": [
+    "@angular-material-components/datetime-picker",
     "@angular/animations",
     "@angular/forms",
     "@angular/flex-layout",
     "@angular/material",
     "@ngx-translate/core",
     "@ngx-translate/http-loader",
+    "ngx-material-timepicker",
     "ngx-cookie-service",
     "rxjs",
     "typescript"
