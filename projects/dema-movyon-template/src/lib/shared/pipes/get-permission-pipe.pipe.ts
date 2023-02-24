@@ -1,17 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Code, Operations } from '../../domain/interface';
+import { Operation } from '../../components/domain/interface';
 
 
 @Pipe({
   name: 'getPermissionPipe'
 })
-export class GetPermissionPipePipe implements PipeTransform {
+export class GetPermissionPipe implements PipeTransform {
 
-  transform(operations: Operations[], code: Code): boolean {
+  transform(operations: Operation[], code: string): boolean {
     let value = '';
     if (operations) {
       operations.map(
-        (operation: { code: string; value: string }) => {
+        (operation: Operation) => {
           if (operation.code === code)
             value = operation.value;
         }

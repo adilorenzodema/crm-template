@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@angular/flex-layout": "^14.0.0-beta.41",
+    "dema-movyon-template": "file:../../../dema-movyon-template-0.0.18.tgz",
     "tslib": "^2.3.0"
   }
 }

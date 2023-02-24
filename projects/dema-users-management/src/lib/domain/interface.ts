@@ -5,12 +5,12 @@ export interface UserProfile {
 
 export type Code = 'delete-user' | 'edit-user' | 'insert-user' | 'view-user' | 'activate-user';
 
-export interface Operations {
+export interface Operation {
   code: Code;
   description: string;
   value: string;
 }
 export interface Permissions {
   menuItemKey: string;
-  operations: Operations[];
+  operations: Operation[];
 }

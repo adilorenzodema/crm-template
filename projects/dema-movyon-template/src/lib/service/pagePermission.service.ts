@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { catchError, Observable } from 'rxjs';
 import { HttpUtils } from '../../public-api';
@@ -15,10 +15,10 @@ export class PagePermissionService {
   constructor(
     private http: HttpClient,
     private cookieService: CookieService,
-    private confService: ConfigInitService) { }
+    @Inject('beUrl') private beUrl: string) { }
 
   getPermissionPage(menuItemKey: string): Observable<Permissions> {
-    const apiURL = this.confService.config.be_url + "auth";
+    const apiURL = this.beUrl + "auth";
     const token = this.getToken();
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),

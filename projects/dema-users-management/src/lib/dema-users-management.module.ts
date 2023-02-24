@@ -7,17 +7,14 @@ import { LibModalFormConfirmComponent } from './lib-user-management/modal-form-c
 import { LibModalFormUserComponent } from './lib-user-management/modal-form-user/modal-form-user.component';
 import { LibUserManagementComponent } from './lib-user-management/user-management.component';
 import { LibMaterialModule } from './shared/module/material.module';
-import { GetPermissionPipePipe } from './shared/pipes/get-permission-pipe.pipe';
 import { TranslateModule } from '@ngx-translate/core';
-
-
+import { LibPipesModule } from 'dema-movyon-template';
 
 @NgModule({
   declarations: [
     LibUserManagementComponent,
     LibModalFormUserComponent,
-    LibModalFormConfirmComponent,
-    GetPermissionPipePipe
+    LibModalFormConfirmComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +23,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     ReactiveFormsModule,
     UserManagementRoutingModule,
-    TranslateModule
+    TranslateModule,
+    LibPipesModule
   ],
   exports: []
 })

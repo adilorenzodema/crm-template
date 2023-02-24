@@ -15,14 +15,12 @@ export interface UserPermission {
   menu: Menu[];
 }
 
-export type Code = 'delete-user' | 'edit-user' | 'insert-user' | 'view-user' | 'activate-user';
-
-export interface Operations {
-  code: Code;
+export interface Operation {
+  code: string;
   description: string;
   value: string;
 }
 export interface Permissions {
   menuItemKey: string;
-  operations: Operations[];
+  operations: Operation[];
 }
