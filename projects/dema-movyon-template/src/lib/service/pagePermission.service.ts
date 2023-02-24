@@ -4,7 +4,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { catchError, Observable } from 'rxjs';
 import { HttpUtils } from '../../public-api';
 import { Permissions } from '../components/domain/interface';
-import { ConfigInitService } from '../init/config-init.service';
 
 
 @Injectable({

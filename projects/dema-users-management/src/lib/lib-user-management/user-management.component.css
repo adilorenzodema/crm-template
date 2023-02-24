@@ -5,3 +5,15 @@ table {
 th.mat-sort-header-sorted {
   color: black;
 }
+
+.editIcon {
+  color: #479AED;
+}
+
+.refreshIcon {
+  color: #479AED;
+}
+
+.deleteIcon {
+  color: red;
+}

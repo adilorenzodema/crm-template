@@ -10,7 +10,8 @@
         </button>
       </mat-form-field>
       <mat-slide-toggle formControlName="ctrlActive" color="primary" (change)="callGetAPI()">
-        {{search.controls['ctrlActive'].value ? ('manage_users.active' | translate) : ('manage_users.inactive' | translate)}}
+        {{search.controls['ctrlActive'].value ? ('manage_users.active' | translate) :
+        ('manage_users.inactive' | translate)}}
       </mat-slide-toggle>
       <button mat-button class="actionButton" *ngIf="operations | getPermissionPipe: 'insert-user'"
         (click)="addUser()">{{'manage_users.add' | translate }}</button>
@@ -52,15 +53,15 @@
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element" style="text-align: end;">
           <button mat-icon-button matTooltip="{{'manage_users.edit' | translate}}" (click)="onEdit(element)"
-            *ngIf=" operations | getPermissionPipe: 'edit-user'"><mat-icon
-              style="color:#479AED">edit</mat-icon></button>
-          <button mat-icon-button matTooltip="{{'manage_users.disactivate' | translate}}" (click)="onDelete(element.userId)"
+            *ngIf=" operations | getPermissionPipe: 'edit-user'"><mat-icon class="editIcon">edit</mat-icon></button>
+          <button mat-icon-button matTooltip="{{'manage_users.disactivate' | translate}}"
+            (click)="onDelete(element.userId)"
             *ngIf="search.controls['ctrlActive'].value && operations | getPermissionPipe: 'delete-user' else isActive"><mat-icon
-              style="color: red">delete</mat-icon></button>
+              class="deleteIcon">delete</mat-icon></button>
           <ng-template #isActive>
-            <button mat-icon-button matTooltip="{{'manage_users.activate' | translate}}" (click)="onActivate(element.userId)"
-              *ngIf=" operations | getPermissionPipe: 'activate-user'"><mat-icon
-                style="color: #479AED">refresh</mat-icon></button>
+            <button mat-icon-button matTooltip="{{'manage_users.activate' | translate}}"
+              (click)="onActivate(element.userId)" *ngIf=" operations | getPermissionPipe: 'activate-user'"><mat-icon
+                class="refreshIcon">refresh</mat-icon></button>
           </ng-template>
         </td>
       </ng-container>
