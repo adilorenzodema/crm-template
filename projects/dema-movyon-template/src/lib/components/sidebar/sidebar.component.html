@@ -8,7 +8,7 @@
             <a [routerLink]="['/', menuItem.route]">
                 <mat-icon>{{ menuItem.icon }}
                 </mat-icon>
-                <span>{{menuItem.name}}</span>
+                <span>{{'Menu.' + menuItem.name | translate}}</span>
             </a>
         </mat-list-item>
     </mat-nav-list>

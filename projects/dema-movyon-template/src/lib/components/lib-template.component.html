@@ -20,8 +20,7 @@
       <mat-menu #menuLanguages="matMenu" >
         <span *ngFor="let item of  translateService.getLangs();">
           <button mat-menu-item (click)="translateService.use(item)">
-            <mat-icon> subtitles  </mat-icon>
-            <span> {{item}} </span>
+            <span> {{'template.' + item | translate}} </span>
           </button>
         </span>
       </mat-menu>

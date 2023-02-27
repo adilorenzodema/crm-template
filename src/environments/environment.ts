@@ -9,6 +9,11 @@ export const environment = {
     imgSidebar: 'assets/images/logo-dema.png',
     title: 'Template gui'
   },
+  footer: {
+    year: '2022',
+    title: 'Powered by Dema Engineering',
+    link: 'https://dema-engineering.it/',
+  }
 };
 
 /*
