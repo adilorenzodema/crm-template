@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -14,6 +14,7 @@ export class LibLoginComponent implements OnInit {
   public formGroup!: FormGroup;
 
   constructor(
+    @Inject('login') public loginImg: any,
     private router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthService,
