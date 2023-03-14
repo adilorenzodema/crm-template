@@ -21,6 +21,7 @@ export class LibResetPasswordComponent implements OnInit {
   private token!: string;
 
   constructor(
+    @Inject('login') public loginImg: any,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../../service/auth-service.service';
@@ -18,6 +18,7 @@ export class LibSendMailComponent implements OnInit {
   public formGroup!: FormGroup;
 
   constructor(
+    @Inject('login') public loginImg: any,
     private snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
     private authService: AuthService
