@@ -33,7 +33,6 @@
     "dema-movyon-template": "^0.0.16",
     "dema-users-management": "^0.0.12",
     "ngx-cookie-service": "^14.0.1",
-    "ngx-scrollbar": "^10.0.1",
     "npm": "^9.1.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
