@@ -5,6 +5,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
+    <ng-scrollbar>
     <mat-toolbar class="example-header">
       <!-- header -->
       <button mat-icon-button (click)="snav.toggle()">
@@ -17,7 +18,7 @@
       <button mat-icon-button [matMenuTriggerFor]="menuLanguages">
         {{translateService.currentLang}}
       </button>
-      <mat-menu #menuLanguages="matMenu" >
+      <mat-menu #menuLanguages="matMenu">
         <span *ngFor="let item of  translateService.getLangs();">
           <button mat-menu-item (click)="translateService.use(item)">
             <span> {{'template.' + item | translate}} </span>
@@ -37,10 +38,10 @@
         <mat-icon>logout</mat-icon>
       </button>
     </mat-toolbar>
-    <div class="page-content">
-      <!-- contenuto interno -->
-      <router-outlet></router-outlet>
-    </div>
+      <div class="page-content">
+        <router-outlet></router-outlet>
+      </div>
+    </ng-scrollbar>
     <lib-footer></lib-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

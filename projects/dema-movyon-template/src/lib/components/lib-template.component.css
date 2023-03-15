@@ -34,3 +34,9 @@
   width: 380px;
   max-width: unset !important;
 }
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
+.my-scrollbar {
+  --scrollbar-thumb-color: white;
+}

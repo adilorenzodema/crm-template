@@ -3,7 +3,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
 import { LibLoginComponent } from './components/autentication/login/login.component';
@@ -17,6 +16,7 @@ import { getPropertyFromConfig, initializeConfig } from './init/app.init';
 import { ConfigInitService } from './init/config-init.service';
 import { LibTemplateRoutingModule } from './lib-template.routing';
 import { LibMaterialModule } from './shared/module/material.module';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 
 @NgModule({
@@ -36,7 +36,8 @@ import { LibMaterialModule } from './shared/module/material.module';
     ReactiveFormsModule,
     HttpClientModule,
     LibTemplateRoutingModule,
-    TranslateModule
+    TranslateModule,
+    NgScrollbarModule
   ],
   providers: [
     { provide: 'be_url', useValue: 'be_url' },
