@@ -3,7 +3,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
 import { LibLoginComponent } from './components/autentication/login/login.component';
@@ -18,6 +17,7 @@ import { ConfigInitService } from './init/config-init.service';
 import { LibTemplateRoutingModule } from './lib-template.routing';
 import { LibMaterialModule } from './shared/module/material.module';
 import { ModalChangePasswordComponent } from './components/modal-change-password/modal-change-password.component';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 
 @NgModule({
@@ -38,7 +38,8 @@ import { ModalChangePasswordComponent } from './components/modal-change-password
     ReactiveFormsModule,
     HttpClientModule,
     LibTemplateRoutingModule,
-    TranslateModule
+    TranslateModule,
+    NgScrollbarModule
   ],
   providers: [
     { provide: 'be_url', useValue: 'be_url' },

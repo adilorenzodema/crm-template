@@ -9,6 +9,7 @@ import { LibUserManagementComponent } from './lib-user-management/user-managemen
 import { LibMaterialModule } from './shared/module/material.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { LibPipesModule } from 'dema-movyon-template';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LibPipesModule } from 'dema-movyon-template';
     ReactiveFormsModule,
     UserManagementRoutingModule,
     TranslateModule,
-    LibPipesModule
+    LibPipesModule,
+    NgScrollbarModule
   ],
   exports: []
 })
