@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../service/auth-service.service';
 import { LibResetPasswordComponent } from './autentication/reset-password/reset-password.component';
+import { ModalChangePasswordComponent } from './modal-change-password/modal-change-password.component';
 
 @Component({
   selector: 'lib-template',
@@ -29,7 +30,7 @@ export class LibTemplateComponent {
   }
 
   changePassword(): void {
-    this.dialog.open(LibResetPasswordComponent, { width: '50%', height: '60%', data: { isChange: true } });
+    this.dialog.open(ModalChangePasswordComponent, { width: '50%', height: '60%'});
   }
 
 }

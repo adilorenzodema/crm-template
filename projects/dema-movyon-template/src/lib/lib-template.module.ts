@@ -17,6 +17,7 @@ import { getPropertyFromConfig, initializeConfig } from './init/app.init';
 import { ConfigInitService } from './init/config-init.service';
 import { LibTemplateRoutingModule } from './lib-template.routing';
 import { LibMaterialModule } from './shared/module/material.module';
+import { ModalChangePasswordComponent } from './components/modal-change-password/modal-change-password.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { LibMaterialModule } from './shared/module/material.module';
     LibSidebarComponent,
     LibLoginComponent,
     LibSendMailComponent,
-    LibResetPasswordComponent
+    LibResetPasswordComponent,
+    ModalChangePasswordComponent
   ],
   imports: [
     CommonModule,
