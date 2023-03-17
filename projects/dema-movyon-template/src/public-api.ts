@@ -17,3 +17,5 @@ export * from './lib/shared/module/material.module';
 export * from './lib/shared/pipes/get-permission-pipe.pipe';
 export * from './lib/shared/utils/httpUtils';
 export * from './lib/shared/utils/snackBar.service';
+export * from './lib/components/select-filter/select-filter.component';
+export * from './lib/components/select-filter/select-filter.module';

@@ -20,6 +20,7 @@ import { ModalChangePasswordComponent } from './components/modal-change-password
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
 
+
 @NgModule({
   declarations: [
     LibTemplateComponent,

@@ -28,7 +28,7 @@ export class LibModalFormUserComponent implements OnInit, OnDestroy {
     this.getProfiles();
     if (this.data) {
       this.inputUserForm = this.formBuilder.group({
-        ctrlName: [this.data.firstName, [Validators.required, Validators.pattern('[a-zA-Z\u00C0-\u00FF]*')]],
+        ctrlName: [this.data.firstName, [Validators.required, Validators.pattern('[a-zA-Z\u00C0-\u00FF ]*')]],
         ctrlSurname: [this.data.lastName, [Validators.required, Validators.pattern('[a-zA-Z\u00C0-\u00FF ]*')]],
         ctrlEmail: [this.data.email, [Validators.required, Validators.email]],
         ctrlProfileCode: [this.data.profileCode, [Validators.required]],
@@ -36,10 +36,11 @@ export class LibModalFormUserComponent implements OnInit, OnDestroy {
 
     } else {
       this.inputUserForm = this.formBuilder.group({
-        ctrlName: ['', [Validators.required, Validators.pattern('[a-zA-Z\u00C0-\u00FF]*')]],
+        ctrlName: ['', [Validators.required, Validators.pattern('[a-zA-Z\u00C0-\u00FF ]*')]],
         ctrlSurname: ['', [Validators.required, Validators.pattern('[a-zA-Z\u00C0-\u00FF ]*')]],
         ctrlEmail: ['', [Validators.required, Validators.email]],
         ctrlProfileCode: [null, [Validators.required]],
+        ctrlSendMail: [false]
       });
     }
   }
@@ -58,7 +59,8 @@ export class LibModalFormUserComponent implements OnInit, OnDestroy {
 
     const formUserAdd = new User(name, surname, email, profileCode);
     if (isAdd) {
-      this.userManagementService.addUser(formUserAdd).subscribe({
+      const sendMail = this.inputUserForm.get('ctrlSendMail')?.value;
+      this.userManagementService.addUser(formUserAdd, sendMail).subscribe({
         next: (data: User) => {
           this.snackBar.open("Utente inserito!", "X", {
             duration: 3000,

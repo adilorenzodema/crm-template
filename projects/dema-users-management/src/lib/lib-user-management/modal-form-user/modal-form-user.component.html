@@ -23,9 +23,13 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <ng-container *ngIf="!data">
+      <mat-checkbox formControlName="ctrlSendMail" required color="primary" > Invia mail di benvenuto </mat-checkbox>
+  </ng-container>
 </form>
 <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
   <button mat-raised-button color="primary" (click)="onCancel()">{{'manage_users.cancel' | translate}}</button>
   <button mat-raised-button color="primary" [disabled]="inputUserForm.invalid"
-    (click)="onSubmit(data ? false : true)">{{data ?  ('manage_users.edit' | translate) : ('manage_users.add' | translate)}}</button>
+    (click)="onSubmit(data ? false : true)">{{data ? ('manage_users.edit' | translate) : ('manage_users.add' |
+    translate)}}</button>
 </div>

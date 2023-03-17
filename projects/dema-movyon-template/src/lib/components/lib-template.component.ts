@@ -13,6 +13,8 @@ import { ModalChangePasswordComponent } from './modal-change-password/modal-chan
   styleUrls: ['lib-template.component.css']
 })
 export class LibTemplateComponent {
+  public variables = ['One','Two','County', 'Three', 'Zebra', 'XiOn'];
+  public filteredList1 = this.variables.slice();
   constructor(
     public translateService: TranslateService,
     private router: Router,
