@@ -43,13 +43,5 @@
       </div>
     </ng-scrollbar>
     <lib-footer></lib-footer>
-    <mat-form-field>
-      <mat-select placeholder="Basic">
-        <mat-select-filter [array]="variables" (filteredReturn)="filteredList1 =$event"></mat-select-filter>
-        <mat-option *ngFor="let item of filteredList1" [value]="item">
-          {{item}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
   </mat-sidenav-content>
 </mat-sidenav-container>
