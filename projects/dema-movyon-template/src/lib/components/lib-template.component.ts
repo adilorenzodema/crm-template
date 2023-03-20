@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../service/auth-service.service';
-import { LibResetPasswordComponent } from './autentication/reset-password/reset-password.component';
 import { ModalChangePasswordComponent } from './modal-change-password/modal-change-password.component';
+
 
 @Component({
   selector: 'lib-template',
@@ -14,6 +14,7 @@ import { ModalChangePasswordComponent } from './modal-change-password/modal-chan
 })
 export class LibTemplateComponent {
   constructor(
+    @Inject('header') public header: any,
     public translateService: TranslateService,
     private router: Router,
     private authService: AuthService,
@@ -30,7 +31,7 @@ export class LibTemplateComponent {
   }
 
   changePassword(): void {
-    this.dialog.open(ModalChangePasswordComponent, { width: '50%', height: '60%'});
+    this.dialog.open(ModalChangePasswordComponent, { width: '50%', height: '60%' });
   }
 
 }

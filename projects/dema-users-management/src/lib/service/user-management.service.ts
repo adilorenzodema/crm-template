@@ -27,10 +27,10 @@ export class UserManagementService {
       .pipe(catchError(err => { throw err; }));
   }
 
-  addUser(user: User): Observable<User> {
+  addUser(user: User, sendMail: Boolean): Observable<User> {
     const options = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
-      params: HttpUtils.createHttpParams({ token: this.getToken() })
+      params: HttpUtils.createHttpParams({ token: this.getToken(), sendWelcomeEmail: sendMail  })
     };
     return this.http.post<User>(this.apiURL + '/addUser', user, options)
       .pipe(catchError(err => { throw err; }));

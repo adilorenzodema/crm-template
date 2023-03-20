@@ -16,9 +16,9 @@
   align-items: center;
   justify-content: center;
   width: 200px;
-  background: #F88DAD;
 }
 
+/* header */
 .example-header {
   position: relative;
   top: 0;
@@ -26,6 +26,7 @@
   right: 0;
 }
 
+/* contenuto pagina */
 .page-content {
   padding: 20px;
 }

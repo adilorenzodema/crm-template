@@ -51,7 +51,7 @@ export class LibUserManagementComponent implements OnInit, OnDestroy {
   }
 
   public addUser(): void {
-    const dialogRef = this.dialog.open(LibModalFormUserComponent, { width: '40%', height: '50%', data: "" });
+    const dialogRef = this.dialog.open(LibModalFormUserComponent, { width: '40%', height: '55%', data: "" });
     dialogRef.afterClosed().subscribe(
       (result) => {
         if (result) { this.callGetAPI(); };
