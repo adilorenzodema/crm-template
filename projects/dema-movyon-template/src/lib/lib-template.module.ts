@@ -18,7 +18,7 @@ import { LibTemplateRoutingModule } from './lib-template.routing';
 import { LibMaterialModule } from './shared/module/material.module';
 import { ModalChangePasswordComponent } from './components/modal-change-password/modal-change-password.component';
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { SelectFilterModule } from './components/select-filter/select-filter.module';
+
 
 
 
@@ -41,7 +41,6 @@ import { SelectFilterModule } from './components/select-filter/select-filter.mod
     HttpClientModule,
     LibTemplateRoutingModule,
     TranslateModule,
-    SelectFilterModule,
     NgScrollbarModule
   ],
   providers: [

@@ -6,38 +6,39 @@
 
   <mat-sidenav-content>
     <ng-scrollbar>
-    <mat-toolbar class="example-header">
-      <!-- header -->
-      <button mat-icon-button (click)="snav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span fxFlex></span>
-      <button mat-icon-button>
-        <mat-icon>person</mat-icon>
-      </button>
-      <button mat-icon-button [matMenuTriggerFor]="menuLanguages">
-        {{translateService.currentLang}}
-      </button>
-      <mat-menu #menuLanguages="matMenu">
-        <span *ngFor="let item of  translateService.getLangs();">
-          <button mat-menu-item (click)="translateService.use(item)">
-            <span> {{'template.' + item | translate}} </span>
-          </button>
-        </span>
-      </mat-menu>
-      <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="changePassword()">
-          <mat-icon>lock reset</mat-icon>
-          <span>{{'template.change_password' | translate}}</span>
+      <mat-toolbar class="example-header">
+        <!-- header -->
+        <button mat-icon-button (click)="snav.toggle()">
+          <mat-icon>menu</mat-icon>
         </button>
-      </mat-menu>
-      <button mat-icon-button (click)="logout()">
-        <mat-icon>logout</mat-icon>
-      </button>
-    </mat-toolbar>
+        <h1 > &nbsp;&nbsp; {{header.title}} </h1>
+        <span fxFlex></span>
+        <button mat-icon-button>
+          <mat-icon>person</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menuLanguages">
+          {{translateService.currentLang}}
+        </button>
+        <mat-menu #menuLanguages="matMenu">
+          <span *ngFor="let item of  translateService.getLangs();">
+            <button mat-menu-item (click)="translateService.use(item)">
+              <span> {{'template.' + item | translate}} </span>
+            </button>
+          </span>
+        </mat-menu>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="changePassword()">
+            <mat-icon>lock reset</mat-icon>
+            <span>{{'template.change_password' | translate}}</span>
+          </button>
+        </mat-menu>
+        <button mat-icon-button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </mat-toolbar>
       <div class="page-content">
         <router-outlet></router-outlet>
       </div>
