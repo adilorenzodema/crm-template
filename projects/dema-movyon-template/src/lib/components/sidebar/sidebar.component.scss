@@ -8,8 +8,8 @@
         display: block;
         padding: 0px 15px;
     }
-    /* stili link */
-    a {
+    /* link menù colore */
+    .menu-link {
         width: 100%;
         height: 45px;
         display: inherit;
@@ -21,7 +21,7 @@
         }
         /* stile link quando avviene l'hover */
         &:hover {
-            color: white;
+            color: #0D2A47;
         }
     }
 }
