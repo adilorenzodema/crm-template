@@ -23,7 +23,7 @@
     "Batch Management": "Batch"
   },
   "manage_users": {
-    "searchLabel": "Cerca",
+    "searchLabel": "Ricerca per nome, cognome o email",
     "title":"Gestione Utenti",
     "add": "Aggiungi",
     "active": "Attivi",
